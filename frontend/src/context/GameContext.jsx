@@ -90,6 +90,16 @@ export const GameProvider = ({ children }) => {
     }));
   };
 
+  const saveReflectionAnswer = (key, answer) => {
+    setGameState(prev => ({
+      ...prev,
+      reflectionAnswers: {
+        ...prev.reflectionAnswers,
+        [key]: answer,
+      },
+    }));
+  };
+
   const toggleSound = () => {
     setGameState(prev => ({
       ...prev,
