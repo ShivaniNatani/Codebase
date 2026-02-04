@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ChapterLayout, StorySection, DataFragment } from '@/components/ChapterLayout';
 import { PhotoPlaceholder } from '@/components/PhotoPlaceholder';
-import { PuzzleInput, CodeInput } from '@/components/PuzzleInput';
 import { TerminalBlock } from '@/components/TerminalText';
+import { MotorcycleRacingGame } from '@/components/MiniGames';
 import { useGame } from '@/context/GameContext';
 
 const Chapter2 = () => {
