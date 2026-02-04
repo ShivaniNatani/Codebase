@@ -101,6 +101,16 @@ export const GameProvider = ({ children }) => {
     }));
   };
 
+  const findEasterEgg = (chapterIndex) => {
+    setGameState(prev => {
+      if (prev.easterEggsFound.includes(chapterIndex)) return prev;
+      return {
+        ...prev,
+        easterEggsFound: [...prev.easterEggsFound, chapterIndex],
+      };
+    });
+  };
+
   const toggleSound = () => {
     setGameState(prev => ({
       ...prev,
