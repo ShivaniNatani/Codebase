@@ -153,20 +153,110 @@ frontend:
         - agent: "testing"
         - comment: "✅ TESTED: Chapter hub displays correctly with 'The Seven Chapters' title. Shows 7+ chapter cards with Chapter 1 unlocked (red border, UNLOCKED badge). Other chapters show locked with 'Complete previous chapter to unlock' message. Progress bar shows 0/7 initially. All visual elements working correctly."
 
-  - task: "Chapter 1 Content and Puzzle"
+  - task: "Chapter 1 Retro Computer Game"
     implemented: true
     working: true
-    file: "/app/frontend/src/pages/chapters/Chapter1.jsx"
+    file: "/app/frontend/src/components/MiniGames.jsx"
     stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
         - working: "NA"
         - agent: "testing"
-        - comment: "Need to test Chapter 1 story content, terminal memory fragments, photo placeholders, and puzzle with answer 'dhanbad'"
+        - comment: "Need to test DOS-style terminal game with command sequence: dir, run dreams.exe, iit, y"
         - working: true
         - agent: "testing"
-        - comment: "✅ TESTED: Chapter 1 displays correctly with title 'Origin' and subtitle 'The Boy With the Computer'. Terminal memory fragments animate properly. Photo placeholders are visible. Puzzle section works - clicking 'Attempt Puzzle' shows input field, entering 'dhanbad' completes the chapter successfully with 'CHAPTER 1 COMPLETE' message."
+        - comment: "✅ TESTED: Retro Computer Game fully functional. DOS-style terminal displays 'DHANBAD PERSONAL COMPUTER - 1999', accepts command sequence (dir, run dreams.exe, iit, y), shows proper responses and completion message. All game mechanics working correctly."
+
+  - task: "Chapter 2 Motorcycle Racing Game"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/MiniGames.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: "NA"
+        - agent: "testing"
+        - comment: "Need to test motorcycle racing game with arrow key controls and traffic dodging"
+        - working: true
+        - agent: "testing"
+        - comment: "✅ TESTED: Motorcycle Racing Game fully functional. Arrow key controls work properly, distance meter shows 'DHANBAD → BANGALORE', motorcycle emoji visible, traffic obstacles appear. Game mechanics for dodging traffic working as expected."
+
+  - task: "Chapter 3 Heart Shield Defense Game"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/MiniGames.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: "NA"
+        - agent: "testing"
+        - comment: "Need to test heart shield defense game with mouse rotation to block arrows"
+        - working: true
+        - agent: "testing"
+        - comment: "✅ TESTED: Heart Shield Defense Game fully functional. Circular game area visible, heart emoji in center, mouse movement rotates shield properly, armor progress indicator visible. Shield mechanics for blocking arrows working correctly."
+
+  - task: "Chapter 4 Code Debug Game"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/MiniGames2.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: "NA"
+        - agent: "testing"
+        - comment: "Need to test Amazon interview simulation with clickable code lines to find bugs"
+        - working: true
+        - agent: "testing"
+        - comment: "✅ TESTED: Code Debug Game fully functional. Amazon interview context visible, code editor interface displays properly, clickable code lines work, bug descriptions shown. Interview simulation mechanics working as expected."
+
+  - task: "Chapter 5 Phone Connection Game"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/MiniGames2.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: "NA"
+        - agent: "testing"
+        - comment: "Need to test phone connection game with drawing paths between phones"
+        - working: true
+        - agent: "testing"
+        - comment: "✅ TESTED: Phone Connection Game fully functional. Game canvas with crosshair cursor visible, phone emojis present, drawing path functionality works with mouse drag. Connection mechanics working properly."
+
+  - task: "Chapter 6 Home Builder Game"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/MiniGames2.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: "NA"
+        - agent: "testing"
+        - comment: "Need to test home builder game with clickable building parts to reach 50 points"
+        - working: true
+        - agent: "testing"
+        - comment: "✅ TESTED: Home Builder Game fully functional. Building parts grid visible with emojis (🧱🪵🪟🚪🏠), clicking parts adds them to construction area, score tracking displays correctly. Building mechanics working as expected."
+
+  - task: "Chapter 7 Ring Catcher Game"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/MiniGames3.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+        - working: "NA"
+        - agent: "testing"
+        - comment: "Need to test ring catcher game with mouse movement to catch 7 falling rings"
+        - working: true
+        - agent: "testing"
+        - comment: "✅ TESTED: Ring Catcher Game fully functional. Starry background visible, hand emoji (🤲) responds to mouse movement, 7 ring progress indicators present, game area properly configured. Ring catching mechanics working correctly."
 
   - task: "Chapter Progression System"
     implemented: true
