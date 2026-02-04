@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ChapterLayout, StorySection, DataFragment } from '@/components/ChapterLayout';
 import { PhotoPlaceholder } from '@/components/PhotoPlaceholder';
-import { PuzzleInput } from '@/components/PuzzleInput';
 import { TerminalBlock } from '@/components/TerminalText';
+import { RetroComputerGame } from '@/components/MiniGames';
 import { useGame } from '@/context/GameContext';
 
 const Chapter1 = () => {
@@ -175,20 +175,16 @@ const Chapter1 = () => {
 
           {!showPuzzle && !puzzleSolved && (
             <div className="text-center">
-              <Button onClick={() => setShowPuzzle(true)} variant="outline">
-                <i className="fas fa-lock mr-2" />
-                Attempt Puzzle
+              <Button onClick={() => setShowPuzzle(true)} variant="outline" size="lg">
+                <i className="fas fa-gamepad mr-2" />
+                Start the Challenge
               </Button>
+              <p className="text-xs text-muted-foreground mt-2">Boot the old computer to proceed</p>
             </div>
           )}
 
           {showPuzzle && !puzzleSolved && (
-            <PuzzleInput
-              correctAnswer="dhanbad"
-              placeholder="Enter the city name..."
-              hint="The coal capital of India"
-              onSuccess={handlePuzzleSuccess}
-            />
+            <RetroComputerGame onSuccess={handlePuzzleSuccess} />
           )}
 
           {puzzleSolved && (
