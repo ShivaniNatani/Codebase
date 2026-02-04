@@ -207,29 +207,25 @@ const Chapter4 = () => {
               <span className="text-xs font-mono text-primary">CHAPTER CHALLENGE</span>
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">
-              The Company That Changed Everything
+              Amazon Interview Simulation
             </h3>
             <p className="text-muted-foreground text-sm">
-              Where did the spontaneous interview lead?
+              Debug the code to pass the spontaneous interview challenge!
             </p>
           </div>
 
           {!showPuzzle && !puzzleSolved && (
             <div className="text-center">
-              <Button onClick={() => setShowPuzzle(true)} variant="outline">
-                <i className="fas fa-lock mr-2" />
-                Attempt Puzzle
+              <Button onClick={() => setShowPuzzle(true)} variant="outline" size="lg">
+                <i className="fas fa-code mr-2" />
+                Start Interview
               </Button>
+              <p className="text-xs text-muted-foreground mt-2">Find and click the buggy line in each code snippet</p>
             </div>
           )}
 
           {showPuzzle && !puzzleSolved && (
-            <PuzzleInput
-              correctAnswer="amazon"
-              placeholder="Enter the company name..."
-              hint="The everything store"
-              onSuccess={handlePuzzleSuccess}
-            />
+            <CodeDebugGame onSuccess={handlePuzzleSuccess} />
           )}
 
           {puzzleSolved && (
