@@ -102,7 +102,7 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test the Valentine Week 'Seven Chapters' interactive experience at https://alpha-narrative.preview.emergentagent.com"
+user_problem_statement: "Test the Valentine Week 'Seven Chapters' interactive experience at https://dark-valentine.preview.emergentagent.com"
 
 frontend:
   - task: "Landing Page Terminal Boot Sequence"
