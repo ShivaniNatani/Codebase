@@ -4,9 +4,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ChapterLayout, StorySection } from '@/components/ChapterLayout';
 import { PhotoPlaceholder } from '@/components/PhotoPlaceholder';
-import { PuzzleInput } from '@/components/PuzzleInput';
 import { TerminalBlock } from '@/components/TerminalText';
 import { GlitchText } from '@/components/GlitchText';
+import { RingCatcherGame } from '@/components/MiniGames3';
 import { useGame } from '@/context/GameContext';
 
 const Chapter7 = () => {
