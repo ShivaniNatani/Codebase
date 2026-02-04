@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { TerminalText, TerminalBlock } from '@/components/TerminalText';
-import { GlitchText, GlitchReveal } from '@/components/GlitchText';
+import { TerminalText } from '@/components/TerminalText';
+import { GlitchText } from '@/components/GlitchText';
 import { PuzzleInput } from '@/components/PuzzleInput';
 import { useGame } from '@/context/GameContext';
 
@@ -12,6 +12,7 @@ const LandingPage = () => {
   const { accessGranted, grantAccess, soundEnabled, toggleSound } = useGame();
   const [phase, setPhase] = useState(accessGranted ? 'granted' : 'init');
   const [showAccessPrompt, setShowAccessPrompt] = useState(false);
+  const [typingComplete, setTypingComplete] = useState(false);
 
   useEffect(() => {
     if (accessGranted) {
@@ -20,17 +21,19 @@ const LandingPage = () => {
   }, [accessGranted]);
 
   const bootSequence = [
-    { text: 'INITIALIZING PROTOCOL_7...', prefix: '█ ', speed: 25, className: 'text-primary' },
-    { text: 'LOADING MEMORY FRAGMENTS...', prefix: '█ ', speed: 20 },
-    { text: 'ESTABLISHING NEURAL LINK...', prefix: '█ ', speed: 30 },
-    { text: 'SUBJECT IDENTIFIED: ████████', prefix: '█ ', speed: 15, className: 'text-primary' },
-    { text: 'DOB: 04-10-1994', prefix: '█ ', speed: 40 },
-    { text: 'ORIGIN: DHANBAD, JHARKHAND', prefix: '█ ', speed: 35 },
-    { text: 'STATUS: ALPHA_CONFIRMED', prefix: '█ ', speed: 30, className: 'text-green-400' },
-    { text: 'ACCESS LEVEL: CLASSIFIED', prefix: '█ ', speed: 25, className: 'text-destructive' },
+    { text: 'INITIATING PROTOCOL_VALENTINE...', prefix: '> ', speed: 25, className: 'text-primary' },
+    { text: 'SCANNING MEMORY ARCHIVES...', prefix: '> ', speed: 20 },
+    { text: 'LOADING ENCRYPTED FILES...', prefix: '> ', speed: 30 },
+    { text: 'SUBJECT: ARGHA', prefix: '> ', speed: 15, className: 'text-primary' },
+    { text: 'CLASSIFICATION: ALPHA', prefix: '> ', speed: 40, className: 'text-yellow-400' },
+    { text: 'COMPANION: SCOTCH 🐕', prefix: '> ', speed: 35 },
+    { text: 'STATUS: AWAITING_AUTHORIZATION', prefix: '> ', speed: 30, className: 'text-destructive' },
+    { text: '8 PROTOCOLS DETECTED...', prefix: '> ', speed: 25 },
+    { text: 'ENTER PASSCODE TO PROCEED', prefix: '> ', speed: 20, className: 'text-primary' },
   ];
 
   const handleBootComplete = () => {
+    setTypingComplete(true);
     setTimeout(() => setShowAccessPrompt(true), 500);
   };
 
@@ -60,8 +63,8 @@ const LandingPage = () => {
             key={i}
             className="absolute w-1 h-1 bg-primary/30 rounded-full"
             initial={{ 
-              x: Math.random() * window.innerWidth, 
-              y: window.innerHeight + 10 
+              x: Math.random() * (typeof window !== 'undefined' ? window.innerWidth : 1000), 
+              y: (typeof window !== 'undefined' ? window.innerHeight : 800) + 10 
             }}
             animate={{ 
               y: -10,
@@ -85,7 +88,7 @@ const LandingPage = () => {
       </button>
 
       {/* Main content */}
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6">
+      <div className="container mx-auto px-4 min-h-screen flex flex-col items-center justify-center">
         <AnimatePresence mode="wait">
           {phase === 'init' && (
             <motion.div
@@ -95,28 +98,28 @@ const LandingPage = () => {
               exit={{ opacity: 0 }}
               className="w-full max-w-2xl"
             >
-              {/* Logo/Title */}
+              {/* Title */}
               <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="text-center mb-12"
+                className="text-center mb-8"
               >
                 <div className="inline-flex items-center gap-3 mb-4">
-                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse-red" />
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                   <span className="text-xs font-mono tracking-[0.3em] text-primary">
-                    PROTOCOL ACTIVE
+                    CLASSIFIED PROTOCOL
                   </span>
-                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse-red" />
+                  <div className="w-2 h-2 bg-primary rounded-full animate-pulse" />
                 </div>
                 
-                <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-2">
-                  <GlitchText text="VALENTINE" glitchIntensity={0.15} className="text-foreground" />
+                <h1 className="text-4xl md:text-6xl font-bold tracking-tighter mb-2">
+                  <GlitchText text="PROTOCOL" glitchIntensity={0.15} className="text-foreground" />
                   <span className="text-primary">_</span>
-                  <GlitchText text="WEEK" glitchIntensity={0.15} className="text-primary" />
+                  <GlitchText text="V" glitchIntensity={0.15} className="text-primary" />
                 </h1>
                 
                 <p className="text-muted-foreground font-mono text-sm">
-                  FOR ARGHA • 8 CHAPTERS • 1 LOVE STORY
+                  8 ENCRYPTED CHAPTERS • 1 FINAL TRUTH
                 </p>
               </motion.div>
 
@@ -132,41 +135,43 @@ const LandingPage = () => {
                   <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
                   <div className="w-3 h-3 rounded-full bg-green-500/80" />
                   <span className="ml-3 text-xs font-mono text-muted-foreground">
-                    access_terminal_v7.0
+                    system_boot.exe
                   </span>
                 </div>
 
                 <div className="font-mono text-sm space-y-1 mb-6">
-                  <TerminalBlock 
-                    lines={bootSequence} 
-                    onAllComplete={handleBootComplete}
+                  <TerminalText
+                    lines={bootSequence}
+                    onComplete={handleBootComplete}
+                    startDelay={500}
                   />
                 </div>
 
+                {/* Access prompt */}
                 <AnimatePresence>
                   {showAccessPrompt && (
                     <motion.div
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className="space-y-4"
+                      className="mt-6 pt-4 border-t border-border/50"
                     >
-                      <div className="h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
-                      
-                      <div className="text-center py-4">
-                        <p className="text-sm text-muted-foreground mb-2">
-                          Enter the birth date of the subject (DDMMYYYY)
+                      <div className="text-center mb-4">
+                        <p className="text-sm text-foreground mb-2">
+                          <i className="fas fa-lock text-primary mr-2" />
+                          ENTER THE DATE EVERYTHING CHANGED
                         </p>
-                        <p className="text-xs font-mono text-primary/60">
-                          HINT: The beginning of it all
+                        <p className="text-xs text-muted-foreground">
+                          Format: DDMMYYYY • Hint: The day you chose forever
                         </p>
                       </div>
 
                       <PuzzleInput
-                        correctAnswer="04101994"
-                        placeholder="Enter 8-digit code..."
-                        hint="Think: When did the story begin?"
+                        correctAnswer="14052024"
+                        hint="The date you proposed..."
                         onSuccess={handleAccessGranted}
+                        placeholder="Enter 8-digit code..."
                         maxAttempts={10}
+                        className="max-w-xs mx-auto"
                       />
                     </motion.div>
                   )}
@@ -176,13 +181,11 @@ const LandingPage = () => {
               {/* Warning text */}
               <motion.p
                 initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                className="text-center text-xs font-mono text-muted-foreground/50 mt-8"
+                animate={{ opacity: typingComplete ? 1 : 0 }}
+                transition={{ delay: 0.5 }}
+                className="text-center text-xs text-muted-foreground/50 mt-6 font-mono"
               >
-                THIS EXPERIENCE IS DESIGNED FOR ONE PERSON ONLY.
-                <br />
-                UNAUTHORIZED ACCESS WILL BE... MEANINGLESS.
+                ⚠️ WARNING: THIS PROTOCOL WILL CHANGE EVERYTHING
               </motion.p>
             </motion.div>
           )}
@@ -190,45 +193,51 @@ const LandingPage = () => {
           {phase === 'granted' && (
             <motion.div
               key="granted"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
               className="text-center"
             >
               <motion.div
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
-                transition={{ type: 'spring', delay: 0.2 }}
-                className="w-24 h-24 rounded-full bg-primary/20 border-2 border-primary flex items-center justify-center mx-auto mb-8 pulse-glow"
+                transition={{ type: 'spring', duration: 0.8 }}
+                className="mb-8"
               >
-                <i className="fas fa-unlock-alt text-4xl text-primary" />
+                <div className="w-24 h-24 rounded-full bg-primary/10 border-2 border-primary flex items-center justify-center mx-auto mb-6">
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 1, repeat: Infinity }}
+                  >
+                    <i className="fas fa-unlock text-4xl text-primary" />
+                  </motion.div>
+                </div>
+                
+                <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-2">
+                  ACCESS GRANTED
+                </h2>
+                <p className="text-muted-foreground">
+                  Welcome, Argha. The protocol awaits.
+                </p>
               </motion.div>
 
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
+                transition={{ delay: 0.5 }}
+                className="space-y-4"
               >
-                <h2 className="text-3xl font-bold text-foreground mb-2">
-                  ACCESS GRANTED
-                </h2>
-                <p className="text-muted-foreground font-serif italic mb-8">
-                  Welcome back. The story awaits.
+                <Button
+                  size="lg"
+                  onClick={() => navigate('/chapters')}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg group"
+                >
+                  <span>INITIATE PROTOCOL</span>
+                  <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform" />
+                </Button>
+
+                <p className="text-xs font-mono text-muted-foreground/50">
+                  8 chapters. 8 days. 1 truth to discover.
                 </p>
-
-                <div className="space-y-4">
-                  <Button
-                    size="lg"
-                    onClick={() => navigate('/chapters')}
-                    className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg group"
-                  >
-                    <span>Enter the Protocol</span>
-                    <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform" />
-                  </Button>
-
-                  <p className="text-xs font-mono text-muted-foreground/50">
-                    8 days. 8 chapters. 1 love story.
-                  </p>
-                </div>
               </motion.div>
             </motion.div>
           )}
