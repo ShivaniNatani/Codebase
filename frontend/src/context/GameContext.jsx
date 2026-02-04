@@ -23,7 +23,13 @@ export const GameProvider = ({ children }) => {
     const saved = localStorage.getItem(STORAGE_KEY);
     if (saved) {
       try {
-        return { ...initialState, ...JSON.parse(saved) };
+        const parsed = JSON.parse(saved);
+        // Ensure easterEggsFound exists for backwards compatibility
+        return { 
+          ...initialState, 
+          ...parsed,
+          easterEggsFound: parsed.easterEggsFound || [],
+        };
       } catch (e) {
         return initialState;
       }
