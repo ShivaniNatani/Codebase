@@ -238,29 +238,25 @@ const Chapter6 = () => {
               <span className="text-xs font-mono text-primary">CHAPTER CHALLENGE</span>
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">
-              The Island Paradise
+              Build Your Home Together
             </h3>
             <p className="text-muted-foreground text-sm">
-              One of their travel destinations - an archipelago in the Indian Ocean
+              Place the blocks to build the home you&apos;re moving into in Feb 2025
             </p>
           </div>
 
           {!showPuzzle && !puzzleSolved && (
             <div className="text-center">
-              <Button onClick={() => setShowPuzzle(true)} variant="outline">
-                <i className="fas fa-lock mr-2" />
-                Attempt Puzzle
+              <Button onClick={() => setShowPuzzle(true)} variant="outline" size="lg">
+                <i className="fas fa-home mr-2" />
+                Start Building
               </Button>
+              <p className="text-xs text-muted-foreground mt-2">Use arrow keys to move, SPACE to place blocks</p>
             </div>
           )}
 
           {showPuzzle && !puzzleSolved && (
-            <PuzzleInput
-              correctAnswer="maldives"
-              placeholder="Enter the destination..."
-              hint="Islands of luxury in crystal blue waters"
-              onSuccess={handlePuzzleSuccess}
-            />
+            <HomeBuilderGame onSuccess={handlePuzzleSuccess} />
           )}
 
           {puzzleSolved && (
