@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 export const TerminalText = ({ 
@@ -12,33 +12,41 @@ export const TerminalText = ({
 }) => {
   const [displayedText, setDisplayedText] = useState('');
   const [isComplete, setIsComplete] = useState(false);
-  const [started, setStarted] = useState(false);
   const indexRef = useRef(0);
+  const hasCompletedRef = useRef(false);
 
   useEffect(() => {
+    // Reset state when text changes
+    indexRef.current = 0;
+    hasCompletedRef.current = false;
+    setDisplayedText('');
+    setIsComplete(false);
+
     const startTimer = setTimeout(() => {
-      setStarted(true);
+      const timer = setInterval(() => {
+        if (indexRef.current < text.length) {
+          indexRef.current++;
+          setDisplayedText(text.slice(0, indexRef.current));
+        } else if (!hasCompletedRef.current) {
+          hasCompletedRef.current = true;
+          setIsComplete(true);
+          clearInterval(timer);
+          onComplete?.();
+        }
+      }, speed);
+
+      return () => clearInterval(timer);
     }, delay);
 
     return () => clearTimeout(startTimer);
-  }, [delay]);
+  }, [text, speed, delay]);
 
+  // Separate effect for onComplete to avoid stale closure
   useEffect(() => {
-    if (!started) return;
-
-    const timer = setInterval(() => {
-      if (indexRef.current < text.length) {
-        setDisplayedText(text.slice(0, indexRef.current + 1));
-        indexRef.current++;
-      } else {
-        setIsComplete(true);
-        clearInterval(timer);
-        onComplete?.();
-      }
-    }, speed);
-
-    return () => clearInterval(timer);
-  }, [started, text, speed, onComplete]);
+    if (isComplete && onComplete && hasCompletedRef.current) {
+      // Already called in the interval
+    }
+  }, [isComplete, onComplete]);
 
   return (
     <motion.div
