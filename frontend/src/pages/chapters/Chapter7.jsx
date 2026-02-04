@@ -214,29 +214,25 @@ const Chapter7 = () => {
               <span className="text-xs font-mono text-primary">FINAL CHALLENGE</span>
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">
-              The Proposal Date
+              Catch the Rings
             </h3>
             <p className="text-muted-foreground text-sm">
-              Enter the date he proposed (format: DDMMYYYY)
+              Catch 7 falling rings - one for each chapter of your story
             </p>
           </div>
 
           {!showPuzzle && !puzzleSolved && (
             <div className="text-center">
-              <Button onClick={() => setShowPuzzle(true)} variant="outline">
-                <i className="fas fa-lock mr-2" />
-                Unlock Final Memory
+              <Button onClick={() => setShowPuzzle(true)} variant="outline" size="lg">
+                <i className="fas fa-ring mr-2" />
+                Begin the Proposal
               </Button>
+              <p className="text-xs text-muted-foreground mt-2">Move your mouse to catch the falling rings</p>
             </div>
           )}
 
           {showPuzzle && !puzzleSolved && (
-            <PuzzleInput
-              correctAnswer="14052024"
-              placeholder="Enter the date..."
-              hint="The day it became official"
-              onSuccess={handlePuzzleSuccess}
-            />
+            <RingCatcherGame onSuccess={handlePuzzleSuccess} />
           )}
 
           <AnimatePresence>
