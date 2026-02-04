@@ -2,74 +2,80 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-    margin: 0;
-    font-family:
-        -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-        "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-    font-family:
-        source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
-}
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 @layer base {
     :root {
-        --background: 0 0% 100%;
-        --foreground: 0 0% 3.9%;
-        --card: 0 0% 100%;
-        --card-foreground: 0 0% 3.9%;
-        --popover: 0 0% 100%;
-        --popover-foreground: 0 0% 3.9%;
-        --primary: 0 0% 9%;
+        /* PSYCHOLOGICAL THRILLER - Deep Blacks & Blood Red */
+        --background: 0 0% 3%;
+        --foreground: 0 0% 95%;
+        
+        /* Cards and surfaces */
+        --card: 0 0% 5%;
+        --card-foreground: 0 0% 95%;
+        --popover: 0 0% 6%;
+        --popover-foreground: 0 0% 95%;
+        
+        /* Blood Red Primary */
+        --primary: 0 72% 45%;
         --primary-foreground: 0 0% 98%;
-        --secondary: 0 0% 96.1%;
-        --secondary-foreground: 0 0% 9%;
-        --muted: 0 0% 96.1%;
-        --muted-foreground: 0 0% 45.1%;
-        --accent: 0 0% 96.1%;
-        --accent-foreground: 0 0% 9%;
-        --destructive: 0 84.2% 60.2%;
+        --primary-glow: 0 85% 55%;
+        --primary-deep: 0 80% 30%;
+        
+        /* Secondary - Dark Steel */
+        --secondary: 0 0% 12%;
+        --secondary-foreground: 0 0% 85%;
+        
+        /* Muted - Charcoal */
+        --muted: 0 0% 15%;
+        --muted-foreground: 0 0% 55%;
+        
+        /* Accent - Crimson Glow */
+        --accent: 0 65% 50%;
+        --accent-foreground: 0 0% 98%;
+        
+        /* Destructive */
+        --destructive: 0 84% 60%;
         --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 89.8%;
-        --input: 0 0% 89.8%;
-        --ring: 0 0% 3.9%;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
+        
+        /* Borders & inputs */
+        --border: 0 0% 18%;
+        --input: 0 0% 12%;
+        --ring: 0 72% 45%;
+        
+        /* Chapter Colors */
+        --chapter-locked: 0 0% 20%;
+        --chapter-unlocked: 0 72% 45%;
+        --chapter-active: 0 85% 55%;
+        
+        /* Terminal Colors */
+        --terminal-green: 120 100% 40%;
+        --terminal-amber: 38 100% 50%;
+        --terminal-red: 0 100% 50%;
+        
+        /* Gradients */
+        --gradient-blood: linear-gradient(135deg, hsl(0 72% 45%), hsl(0 85% 30%));
+        --gradient-dark: linear-gradient(180deg, hsl(0 0% 5%), hsl(0 0% 2%));
+        --gradient-glow: radial-gradient(ellipse at center, hsl(0 72% 45% / 0.15), transparent 70%);
+        --gradient-vignette: radial-gradient(ellipse at center, transparent 40%, hsl(0 0% 0% / 0.8) 100%);
+        
+        /* Shadows */
+        --shadow-blood: 0 0 40px hsl(0 72% 45% / 0.3);
+        --shadow-deep: 0 25px 50px -12px hsl(0 0% 0% / 0.8);
+        --shadow-glow: 0 0 60px hsl(0 85% 55% / 0.2);
+        --shadow-inner: inset 0 2px 4px hsl(0 0% 0% / 0.5);
+        
+        /* Animations */
+        --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        --transition-bounce: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        --transition-glitch: 0.1s steps(2, end);
+        
         --radius: 0.5rem;
     }
+    
     .dark {
-        --background: 0 0% 3.9%;
-        --foreground: 0 0% 98%;
-        --card: 0 0% 3.9%;
-        --card-foreground: 0 0% 98%;
-        --popover: 0 0% 3.9%;
-        --popover-foreground: 0 0% 98%;
-        --primary: 0 0% 98%;
-        --primary-foreground: 0 0% 9%;
-        --secondary: 0 0% 14.9%;
-        --secondary-foreground: 0 0% 98%;
-        --muted: 0 0% 14.9%;
-        --muted-foreground: 0 0% 63.9%;
-        --accent: 0 0% 14.9%;
-        --accent-foreground: 0 0% 98%;
-        --destructive: 0 62.8% 30.6%;
-        --destructive-foreground: 0 0% 98%;
-        --border: 0 0% 14.9%;
-        --input: 0 0% 14.9%;
-        --ring: 0 0% 83.1%;
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        --background: 0 0% 2%;
+        --foreground: 0 0% 96%;
     }
 }
 
@@ -77,11 +83,327 @@ code {
     * {
         @apply border-border;
     }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
     body {
         @apply bg-background text-foreground;
+        font-family: 'Space Grotesk', sans-serif;
+        overflow-x: hidden;
+    }
+    
+    ::selection {
+        background: hsl(var(--primary) / 0.4);
+        color: hsl(var(--foreground));
     }
 }
 
+/* Typography Classes */
+.font-mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.font-serif {
+    font-family: 'Crimson Pro', serif;
+}
+
+.font-sans {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Glitch Effect */
+@keyframes glitch {
+    0% {
+        transform: translate(0);
+        opacity: 1;
+    }
+    20% {
+        transform: translate(-2px, 2px);
+    }
+    40% {
+        transform: translate(-2px, -2px);
+        opacity: 0.8;
+    }
+    60% {
+        transform: translate(2px, 2px);
+    }
+    80% {
+        transform: translate(2px, -2px);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translate(0);
+        opacity: 1;
+    }
+}
+
+@keyframes glitch-skew {
+    0% {
+        transform: skew(0deg);
+    }
+    20% {
+        transform: skew(-0.5deg);
+    }
+    40% {
+        transform: skew(0.5deg);
+    }
+    60% {
+        transform: skew(-0.3deg);
+    }
+    80% {
+        transform: skew(0.3deg);
+    }
+    100% {
+        transform: skew(0deg);
+    }
+}
+
+.glitch {
+    animation: glitch 0.3s ease-in-out infinite alternate;
+}
+
+.glitch-skew {
+    animation: glitch-skew 0.5s ease-in-out infinite;
+}
+
+/* Terminal Cursor Blink */
+@keyframes cursor-blink {
+    0%, 50% {
+        opacity: 1;
+    }
+    51%, 100% {
+        opacity: 0;
+    }
+}
+
+.cursor-blink {
+    animation: cursor-blink 1s step-end infinite;
+}
+
+/* Pulse Glow */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+    }
+    50% {
+        box-shadow: 0 0 40px hsl(var(--primary) / 0.6);
+    }
+}
+
+.pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Blood Drip Effect */
+@keyframes blood-drip {
+    0% {
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+    100% {
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+}
+
+.blood-drip {
+    animation: blood-drip 1.5s ease-out forwards;
+}
+
+/* Typewriter Effect */
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+.typewriter {
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typewriter 3s steps(40) forwards;
+}
+
+/* Scanline Effect */
+@keyframes scanline {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
+}
+
+.scanline::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(transparent, hsl(var(--primary) / 0.1), transparent);
+    animation: scanline 8s linear infinite;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Noise Overlay */
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* Heartbeat Animation */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1);
+    }
+    15% {
+        transform: scale(1.1);
+    }
+    30% {
+        transform: scale(1);
+    }
+    45% {
+        transform: scale(1.05);
+    }
+}
+
+.heartbeat {
+    animation: heartbeat 1.5s ease-in-out infinite;
+}
+
+/* Fade In Up */
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+}
+
+/* Vignette Effect */
+.vignette {
+    position: relative;
+}
+
+.vignette::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-vignette);
+    pointer-events: none;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+    background: hsl(var(--primary) / 0.5);
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.7);
+}
+
+/* Input Focus Ring */
+input:focus,
+textarea:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px hsl(var(--primary) / 0.3);
+}
+
+/* Terminal Text Animation */
+@keyframes terminal-type {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.terminal-line {
+    animation: terminal-type 0.05s ease-out forwards;
+}
+
+/* Matrix Rain Effect Background */
+@keyframes matrix-fall {
+    0% {
+        transform: translateY(-100%);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh);
+        opacity: 0;
+    }
+}
+
+/* Chapter Card Hover */
+.chapter-card {
+    transition: transform var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.chapter-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+}
+
+/* Redacted Text Effect */
+.redacted {
+    background: hsl(var(--foreground));
+    color: hsl(var(--foreground));
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.redacted:hover,
+.redacted.revealed {
+    background: transparent;
+    color: hsl(var(--primary));
+}
+
+/* Puzzle Input */
+.puzzle-input {
+    background: hsl(var(--input));
+    border: 1px solid hsl(var(--border));
+    transition: border-color var(--transition-smooth), box-shadow var(--transition-smooth);
+}
+
+.puzzle-input:focus {
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px hsl(var(--primary) / 0.2);
+}
+
+/* Debug wrapper compatibility */
 @layer base {
     [data-debug-wrapper="true"] {
         display: contents !important;
@@ -103,13 +425,5 @@ code {
         border-right-width: inherit;
         border-top-width: inherit;
         border-bottom-width: inherit;
-        border-left-style: inherit;
-        border-right-style: inherit;
-        border-top-style: inherit;
-        border-bottom-style: inherit;
-        border-left-color: inherit;
-        border-right-color: inherit;
-        border-top-color: inherit;
-        border-bottom-color: inherit;
     }
 }
