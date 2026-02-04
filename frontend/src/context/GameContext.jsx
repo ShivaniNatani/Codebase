@@ -5,11 +5,12 @@ const GameContext = createContext(null);
 const STORAGE_KEY = 'valentine_protocol_progress';
 
 const initialState = {
-  accessGranted: false,
-  chaptersUnlocked: [true, false, false, false, false, false, false],
-  chaptersCompleted: [false, false, false, false, false, false, false],
+  accessGranted: true, // DEV MODE: All access granted for testing
+  chaptersUnlocked: [true, true, true, true, true, true, true, true], // 8 chapters for Valentine Week
+  chaptersCompleted: [false, false, false, false, false, false, false, false],
   currentChapter: 0,
   puzzleAnswers: {},
+  reflectionAnswers: {}, // Store reflection answers
   finalChoiceMade: false,
   finalChoice: null,
   soundEnabled: true,
