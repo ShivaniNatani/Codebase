@@ -226,29 +226,25 @@ const Chapter3 = () => {
               <span className="text-xs font-mono text-primary">CHAPTER CHALLENGE</span>
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">
-              The Programming Language of Love
+              Forge Your Armor
             </h3>
             <p className="text-muted-foreground text-sm">
-              What did he teach her that helped her succeed?
+              Defend your heart from the arrows of betrayal. Block 30 attacks to forge emotional steel.
             </p>
           </div>
 
           {!showPuzzle && !puzzleSolved && (
             <div className="text-center">
-              <Button onClick={() => setShowPuzzle(true)} variant="outline">
-                <i className="fas fa-lock mr-2" />
-                Attempt Puzzle
+              <Button onClick={() => setShowPuzzle(true)} variant="outline" size="lg">
+                <i className="fas fa-shield-alt mr-2" />
+                Defend Your Heart
               </Button>
+              <p className="text-xs text-muted-foreground mt-2">Move your mouse to rotate the shield</p>
             </div>
           )}
 
           {showPuzzle && !puzzleSolved && (
-            <PuzzleInput
-              correctAnswer="java"
-              placeholder="Enter the language..."
-              hint="Write once, run anywhere"
-              onSuccess={handlePuzzleSuccess}
-            />
+            <HeartShieldGame onSuccess={handlePuzzleSuccess} />
           )}
 
           {puzzleSolved && (
