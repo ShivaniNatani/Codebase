@@ -118,6 +118,7 @@ export const GameProvider = ({ children }) => {
     unlockChapter,
     completeChapter,
     savePuzzleAnswer,
+    saveReflectionAnswer,
     makeFinalChoice,
     toggleSound,
     resetProgress,
