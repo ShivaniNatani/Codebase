@@ -2,13 +2,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import LandingPage from "@/pages/LandingPage";
 import ChapterHub from "@/pages/ChapterHub";
-import Chapter1 from "@/pages/chapters/Chapter1";
-import Chapter2 from "@/pages/chapters/Chapter2";
-import Chapter3 from "@/pages/chapters/Chapter3";
-import Chapter4 from "@/pages/chapters/Chapter4";
-import Chapter5 from "@/pages/chapters/Chapter5";
-import Chapter6 from "@/pages/chapters/Chapter6";
-import Chapter7 from "@/pages/chapters/Chapter7";
+import RoseDay from "@/pages/chapters/RoseDay";
+import ProposeDay from "@/pages/chapters/ProposeDay";
+import ChocolateDay from "@/pages/chapters/ChocolateDay";
+import TeddyDay from "@/pages/chapters/TeddyDay";
+import PromiseDay from "@/pages/chapters/PromiseDay";
+import HugDay from "@/pages/chapters/HugDay";
+import KissDay from "@/pages/chapters/KissDay";
+import ValentineDay from "@/pages/chapters/ValentineDay";
 import FinalChoice from "@/pages/FinalChoice";
 import { GameProvider } from "@/context/GameContext";
 import "@/App.css";
@@ -22,13 +23,14 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/chapters" element={<ChapterHub />} />
-            <Route path="/chapter/1" element={<Chapter1 />} />
-            <Route path="/chapter/2" element={<Chapter2 />} />
-            <Route path="/chapter/3" element={<Chapter3 />} />
-            <Route path="/chapter/4" element={<Chapter4 />} />
-            <Route path="/chapter/5" element={<Chapter5 />} />
-            <Route path="/chapter/6" element={<Chapter6 />} />
-            <Route path="/chapter/7" element={<Chapter7 />} />
+            <Route path="/rose-day" element={<RoseDay />} />
+            <Route path="/propose-day" element={<ProposeDay />} />
+            <Route path="/chocolate-day" element={<ChocolateDay />} />
+            <Route path="/teddy-day" element={<TeddyDay />} />
+            <Route path="/promise-day" element={<PromiseDay />} />
+            <Route path="/hug-day" element={<HugDay />} />
+            <Route path="/kiss-day" element={<KissDay />} />
+            <Route path="/valentine-day" element={<ValentineDay />} />
             <Route path="/final" element={<FinalChoice />} />
           </Routes>
         </BrowserRouter>
