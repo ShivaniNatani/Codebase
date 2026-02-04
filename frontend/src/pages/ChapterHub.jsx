@@ -2,8 +2,18 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
-import { ChapterGrid } from '@/components/ChapterCard';
 import { useGame } from '@/context/GameContext';
+
+const valentineWeek = [
+  { day: 'Rose Day', date: 'Feb 7', emoji: '🌹', path: '/rose-day', subtitle: 'Where It All Began', color: 'text-red-400' },
+  { day: 'Propose Day', date: 'Feb 8', emoji: '💍', path: '/propose-day', subtitle: 'The Alpha Rises', color: 'text-yellow-400' },
+  { day: 'Chocolate Day', date: 'Feb 9', emoji: '🍫', path: '/chocolate-day', subtitle: 'Bitter & Sweet', color: 'text-amber-600' },
+  { day: 'Teddy Day', date: 'Feb 10', emoji: '🧸', path: '/teddy-day', subtitle: 'The Wrong Shivani', color: 'text-orange-300' },
+  { day: 'Promise Day', date: 'Feb 11', emoji: '🤝', path: '/promise-day', subtitle: 'Opposites Attract', color: 'text-blue-400' },
+  { day: 'Hug Day', date: 'Feb 12', emoji: '🤗', path: '/hug-day', subtitle: 'She Changed Everything', color: 'text-pink-400' },
+  { day: 'Kiss Day', date: 'Feb 13', emoji: '💋', path: '/kiss-day', subtitle: 'The Revelation', color: 'text-rose-500' },
+  { day: "Valentine's Day", date: 'Feb 14', emoji: '❤️', path: '/valentine-day', subtitle: 'The Final Choice', color: 'text-red-500' },
+];
 
 const ChapterHub = () => {
   const navigate = useNavigate();
@@ -11,10 +21,9 @@ const ChapterHub = () => {
     accessGranted, 
     chaptersUnlocked, 
     chaptersCompleted, 
-    currentChapter,
-    resetProgress,
     soundEnabled,
-    toggleSound
+    toggleSound,
+    resetProgress
   } = useGame();
 
   useEffect(() => {
@@ -24,7 +33,7 @@ const ChapterHub = () => {
   }, [accessGranted, navigate]);
 
   const completedCount = chaptersCompleted.filter(Boolean).length;
-  const allCompleted = completedCount === 7;
+  const allCompleted = completedCount === 8;
 
   return (
     <div className="min-h-screen bg-background">
@@ -45,21 +54,19 @@ const ChapterHub = () => {
             </div>
 
             <div className="flex items-center gap-6">
-              {/* Progress */}
               <div className="hidden md:flex items-center gap-3">
                 <span className="text-xs font-mono text-muted-foreground">PROGRESS</span>
                 <div className="w-32 h-2 bg-muted rounded-full overflow-hidden">
                   <motion.div
                     className="h-full bg-primary"
                     initial={{ width: 0 }}
-                    animate={{ width: `${(completedCount / 7) * 100}%` }}
+                    animate={{ width: `${(completedCount / 8) * 100}%` }}
                     transition={{ duration: 0.5 }}
                   />
                 </div>
-                <span className="text-xs font-mono text-primary">{completedCount}/7</span>
+                <span className="text-xs font-mono text-primary">{completedCount}/8</span>
               </div>
 
-              {/* Sound toggle */}
               <button
                 onClick={toggleSound}
                 className="w-9 h-9 rounded-full bg-card border border-border flex items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
@@ -72,25 +79,27 @@ const ChapterHub = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 md:py-24 border-b border-border/30">
+      <section className="py-12 md:py-20 border-b border-border/30">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="max-w-3xl"
+            className="max-w-3xl mx-auto text-center"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 mb-6">
-              <div className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse-red" />
-              <span className="text-xs font-mono text-primary tracking-wider">VALENTINE WEEK PROTOCOL</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6">
+              <span className="text-2xl">💝</span>
+              <span className="text-sm font-mono text-primary tracking-wider">VALENTINE WEEK 2025</span>
             </div>
 
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-foreground mb-4">
-              The Seven Chapters
+              For <span className="text-primary">Argha</span>
             </h1>
             
             <p className="text-lg md:text-xl text-muted-foreground font-serif leading-relaxed">
-              Each chapter unlocks a piece of the story. Solve the puzzle. Decode the message. 
-              <span className="text-primary italic"> Understand the man.</span>
+              8 days. 8 chapters. One love story.
+              <span className="text-primary italic block mt-2">
+                "After everything you've been through, look at what you've found..."
+              </span>
             </p>
 
             {allCompleted && (
@@ -104,8 +113,8 @@ const ChapterHub = () => {
                   onClick={() => navigate('/final')}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground group"
                 >
-                  <i className="fas fa-crown mr-2" />
-                  Proceed to Final Chapter
+                  <i className="fas fa-heart mr-2" />
+                  Open Your Heart
                   <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </motion.div>
@@ -114,94 +123,81 @@ const ChapterHub = () => {
         </div>
       </section>
 
-      {/* Chapter Grid */}
+      {/* Valentine Week Grid */}
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-6">
-          <ChapterGrid
-            chaptersUnlocked={chaptersUnlocked}
-            chaptersCompleted={chaptersCompleted}
-            currentChapter={currentChapter}
-          />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {valentineWeek.map((day, index) => {
+              const isUnlocked = chaptersUnlocked[index];
+              const isCompleted = chaptersCompleted[index];
+              
+              return (
+                <motion.div
+                  key={day.day}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                  onClick={() => isUnlocked && navigate(day.path)}
+                  className={`
+                    relative bg-card border rounded-xl p-6 cursor-pointer transition-all duration-300
+                    ${isUnlocked ? 'border-border hover:border-primary hover:shadow-lg hover:shadow-primary/10' : 'border-border/50 opacity-60 cursor-not-allowed'}
+                    ${isCompleted ? 'border-green-500/50 bg-green-500/5' : ''}
+                  `}
+                >
+                  {/* Day Badge */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-mono text-muted-foreground">{day.date}</span>
+                    {isCompleted && (
+                      <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
+                        <i className="fas fa-check text-green-400 text-xs" />
+                      </div>
+                    )}
+                    {!isUnlocked && (
+                      <i className="fas fa-lock text-muted-foreground/50" />
+                    )}
+                  </div>
+
+                  {/* Emoji */}
+                  <div className="text-5xl mb-4">{day.emoji}</div>
+
+                  {/* Title */}
+                  <h3 className={`text-xl font-bold mb-1 ${day.color}`}>{day.day}</h3>
+                  <p className="text-sm text-muted-foreground">{day.subtitle}</p>
+
+                  {/* Hover Effect */}
+                  {isUnlocked && !isCompleted && (
+                    <div className="absolute inset-0 rounded-xl bg-gradient-to-t from-primary/10 to-transparent opacity-0 hover:opacity-100 transition-opacity" />
+                  )}
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* Info Panel */}
+      {/* Message Section */}
       <section className="py-12 border-t border-border/30">
         <div className="container mx-auto px-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Rules */}
+          <div className="max-w-2xl mx-auto text-center">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
-              className="bg-card border border-border/50 rounded-lg p-6"
+              className="bg-card/50 border border-primary/20 rounded-xl p-8"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <i className="fas fa-scroll text-primary" />
-                </div>
-                <h3 className="font-semibold text-foreground">The Rules</h3>
-              </div>
-              <ul className="space-y-2 text-sm text-muted-foreground">
-                <li className="flex items-start gap-2">
-                  <i className="fas fa-chevron-right text-primary text-xs mt-1.5" />
-                  One chapter per day
-                </li>
-                <li className="flex items-start gap-2">
-                  <i className="fas fa-chevron-right text-primary text-xs mt-1.5" />
-                  Solve the puzzle to proceed
-                </li>
-                <li className="flex items-start gap-2">
-                  <i className="fas fa-chevron-right text-primary text-xs mt-1.5" />
-                  No skipping allowed
-                </li>
-              </ul>
-            </motion.div>
-
-            {/* The Purpose */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-              className="bg-card border border-border/50 rounded-lg p-6"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <i className="fas fa-bullseye text-primary" />
-                </div>
-                <h3 className="font-semibold text-foreground">The Purpose</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                This isn't romantic fluff. This is proof. Every puzzle, every chapter, every word is 
-                a demonstration of understanding. <span className="text-primary font-medium">I didn't just love you. I studied you.</span>
+              <div className="text-4xl mb-4">💌</div>
+              <p className="text-foreground/80 font-serif italic text-lg leading-relaxed">
+                "Argha, this isn't just a story about you. It's a story about US. 
+                Every struggle you faced, every wall you built, every battle you won... 
+                it all led you here. To me. And I need you to see what I see when I look at you."
               </p>
-            </motion.div>
-
-            {/* The Promise */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
-              className="bg-card border border-border/50 rounded-lg p-6"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <i className="fas fa-heart text-primary" />
-                </div>
-                <h3 className="font-semibold text-foreground">The Promise</h3>
-              </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                By the end, you'll feel something you've never felt before. 
-                Not just love. <span className="text-primary font-medium italic">Alignment.</span>
-              </p>
+              <p className="text-primary font-medium mt-4">— Your Wrong Shivani 💕</p>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Reset option - hidden at bottom */}
+      {/* Reset option */}
       <div className="container mx-auto px-6 py-8 border-t border-border/20">
         <button
           onClick={() => {
