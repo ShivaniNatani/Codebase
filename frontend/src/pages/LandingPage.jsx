@@ -110,13 +110,13 @@ const LandingPage = () => {
                 </div>
                 
                 <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-2">
-                  <GlitchText text="SEVEN" glitchIntensity={0.15} className="text-foreground" />
+                  <GlitchText text="VALENTINE" glitchIntensity={0.15} className="text-foreground" />
                   <span className="text-primary">_</span>
-                  <GlitchText text="CHAPTERS" glitchIntensity={0.15} className="text-primary" />
+                  <GlitchText text="WEEK" glitchIntensity={0.15} className="text-primary" />
                 </h1>
                 
                 <p className="text-muted-foreground font-mono text-sm">
-                  THE VALENTINE WEEK PROTOCOL
+                  FOR ARGHA • 8 CHAPTERS • 1 LOVE STORY
                 </p>
               </motion.div>
 
