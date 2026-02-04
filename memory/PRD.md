@@ -1,127 +1,142 @@
-# VALENTINE WEEK - THE SEVEN CHAPTER PROTOCOL
+# VALENTINE WEEK - FOR ARGHA ❤️
 
 ## Product Overview
-A 7-day interactive web experience designed for an intelligent, emotionally reserved man who enjoys logic puzzles and strategy. This is a Valentine's proposal journey where each chapter unlocks part of his life story.
+A deeply personal 8-day Valentine Week proposal experience (Feb 7-14, 2025) designed for Argha from Shivani. The journey tells his life story and culminates in making him realize that after all his struggles and achievements, SHE is his greatest reward.
 
-**Target Audience:** One specific person - the partner (intelligent, logic-focused, emotionally reserved)
-**Purpose:** A proposal journey that makes him reflect on his life, achievements, and feelings before a final commitment
+**Target:** Argha - An intelligent, emotionally reserved man who enjoys logic puzzles and strategy
+**From:** Shivani - Emotional, caring partner from Indore (DOB: 14 May 1998)
+**Purpose:** A Valentine's proposal journey that makes him reflect on his life and realize what he has found in her
 
-## Core Requirements (from User)
-1. ✅ 7-day interactive web app
-2. ✅ Each day unlocks one of seven chapters from his life story
-3. ✅ Each chapter gated by an engaging mini-game
-4. ✅ Each chapter has a reflection questionnaire for self-reflection
-5. ✅ Dark, minimalist, "psychological thriller" aesthetic
-6. ✅ No cringe romance (hearts, roses avoided in favor of strategic/cerebral themes)
-7. ✅ Journey culminates in final proposal choice
+## Valentine Week Structure (8 Days)
+
+| Day | Date | Route | Theme |
+|-----|------|-------|-------|
+| 🌹 Rose Day | Feb 7 | /rose-day | Origin - Dhanbad roots, childhood |
+| 💍 Propose Day | Feb 8 | /propose-day | The Alpha rises, career achievements |
+| 🍫 Chocolate Day | Feb 9 | /chocolate-day | Bitter & Sweet - betrayal story |
+| 🧸 Teddy Day | Feb 10 | /teddy-day | The Wrong Shivani - how they met |
+| 🤝 Promise Day | Feb 11 | /promise-day | Opposites Attract - veg/non-veg, emotional/logical |
+| 🤗 Hug Day | Feb 12 | /hug-day | How she changed everything - key moments |
+| 💋 Kiss Day | Feb 13 | /kiss-day | The Revelation - she is his greatest achievement |
+| ❤️ Valentine's Day | Feb 14 | /valentine-day | THE PROPOSAL |
+
+## Personal Details Used
+
+### Argha
+- Origin: Dhanbad, Jharkhand
+- DOB: 04-10-1994
+- Personality: Alpha, logical, emotionally reserved
+- Food: Hardcore non-veg
+- Career: Amazon (via spontaneous interview), UpGrad alumni mentor
+- Family friends: Amit & Abhilasha
+
+### Shivani
+- Origin: Indore
+- DOB: 14 May 1998
+- Personality: Emotional, expressive, caring
+- Food: Pure vegetarian
+
+### Key Moments Featured
+1. **Wrong number meeting** - He called thinking she was "other Shivani" from Mumbai
+2. **Birthday support** - He made sure she wasn't alone when her ex was with someone else
+3. **Diwali with Amit & Abhilasha** - He didn't go home, celebrated with her instead
+4. **Movie requests** - He always drove to watch what she wanted
+5. **Emotional support** - Always present when she was upset
+6. **Promise** - "Whatever happens, I'll always be there"
 
 ## Technical Stack
 - **Frontend:** React 19 + TailwindCSS + Framer Motion
 - **UI Components:** Shadcn/UI
 - **State Management:** React Context + localStorage
 - **Routing:** React Router DOM
-- **No Backend Required** - Pure frontend experience
+- **No Backend** - Pure frontend experience
 
-## Completed Features
+## Features Implemented
 
-### Landing Page
-- ✅ Terminal-style boot sequence animation
-- ✅ Glitch text effects ("SEVEN_CHAPTERS")
-- ✅ Access code validation (DOB: 04101994)
-- ✅ "ACCESS GRANTED" unlock animation
-- ✅ Sound toggle option
+### Landing Page ✅
+- "VALENTINE_WEEK" title with glitch effect
+- "FOR ARGHA • 8 CHAPTERS • 1 LOVE STORY"
+- Terminal boot sequence animation
+- Access code validation (DOB: 04101994)
+- Sound toggle
 
-### Chapter Hub
-- ✅ 7 chapter cards with lock/unlock states
-- ✅ Progress tracker (0/7 to 7/7)
-- ✅ Chapter completion indicators
-- ✅ "Proceed to Final Chapter" button when all complete
-- ✅ Reset progress option
+### Chapter Hub ✅
+- 8 Valentine Week day cards with emojis
+- Progress tracker (0/8 to 8/8)
+- Personal message from Shivani
+- "For Argha" personalized header
 
-### 7 Chapters Structure
-Each chapter follows: Story → Game → Reflection → Complete
+### Each Chapter ✅
+- Story → Game → Reflection → Complete flow
+- Journey Progress tracker (8 milestones)
+- Personal narrative content
+- Interactive mini-game
+- Reflection questionnaire
+- Navigation between chapters
 
-| Chapter | Title | Game | Theme |
-|---------|-------|------|-------|
-| 1 | Origin | Memory Match | Childhood in Dhanbad |
-| 2 | Migration | Road Trip Game | Move to Bangalore |
-| 3 | Break | Shield Defense | Betrayal & emotional armor |
-| 4 | Ascent | Code Challenge | Career & Amazon |
-| 5 | The Glitch | Connect Hearts | Meeting her |
-| 6 | Partnership | Build Home | Building together |
-| 7 | Commitment | Catch Ring | The proposal |
+### Mini-Games ✅
+1. **MemoryMatchGame** - Match childhood memories
+2. **CodeChallengeGame** - Find bugs in code
+3. **ShieldDefenseGame** - Protect heart from attacks
+4. **ConnectHeartsGame** - Draw line between hearts
+5. **RoadTripGame** - Navigate journey together
+6. **BuildHomeGame** - Click to build future home
+7. **CatchRingGame** - Catch falling rings
 
-### Games (7 Interactive Mini-Games)
-1. **MemoryMatchGame** - Match emoji/text pairs (childhood memories)
-2. **RoadTripGame** - Arrow key dodging (road to Bangalore)
-3. **ShieldDefenseGame** - Mouse rotation defense (protect heart)
-4. **CodeChallengeGame** - Find bugs in code (Amazon interview)
-5. **ConnectHeartsGame** - Draw line between hearts (connection)
-6. **BuildHomeGame** - Click to build (future together)
-7. **CatchRingGame** - Catch falling rings (proposal)
+### Valentine's Day Proposal ✅
+- Journey recap
+- Shivani's love letter
+- "Will you be mine forever?" question
+- "Yes, Forever" / "I need more time" choices
+- Celebration response on "Yes"
 
-### Reflection System
-- ✅ Multiple question types: text, scale (1-10), choice
-- ✅ Progress indicator for each questionnaire
-- ✅ Contextual prompts before questions
-- ✅ "Reflection Complete" state with animation
+## Dev Mode
+For testing, all chapters are unlocked:
+```javascript
+accessGranted: true,
+chaptersUnlocked: [true, true, true, true, true, true, true, true]
+```
 
-### Design System
-- Dark background (near black)
-- Primary: Red (HSL 0 72% 45%)
-- Terminal/hacker aesthetic
-- Serif fonts for quotes
-- Mono fonts for data/terminal
-- Subtle animations throughout
-
-## Architecture
+## File Structure
 ```
 /app/frontend/src/
-├── App.js                   # Main router
-├── index.css                # Design tokens & global styles
+├── App.js                   # Routes for all 8 days
 ├── context/
-│   └── GameContext.jsx      # State management (localStorage)
+│   └── GameContext.jsx      # State + localStorage
 ├── components/
-│   ├── ChapterCard.jsx
 │   ├── ChapterLayout.jsx
 │   ├── GlitchText.jsx
-│   ├── InteractiveGames.jsx # All 7 games
-│   ├── PhotoPlaceholder.jsx
-│   ├── PuzzleInput.jsx
-│   ├── ReflectionSystem.jsx # Questionnaire system
+│   ├── InteractiveGames.jsx
+│   ├── ReflectionSystem.jsx
 │   └── TerminalText.jsx
 └── pages/
-    ├── ChapterHub.jsx
-    ├── FinalChoice.jsx
+    ├── ChapterHub.jsx       # Valentine Week grid
     ├── LandingPage.jsx
     └── chapters/
-        ├── Chapter1-7.jsx   # Individual chapter pages
+        ├── RoseDay.jsx
+        ├── ProposeDay.jsx
+        ├── ChocolateDay.jsx
+        ├── TeddyDay.jsx
+        ├── PromiseDay.jsx
+        ├── HugDay.jsx
+        ├── KissDay.jsx
+        └── ValentineDay.jsx
 ```
 
-## Known Issues (Minor)
-1. ESLint warnings for missing useEffect dependencies (cosmetic)
-2. visual-edits babel plugin disabled (was causing stack overflow)
-
 ## Testing Status
-- ✅ Testing Agent v3: 100% pass rate
-- ✅ All 10 features tested and verified working
-- ✅ No console errors detected
+- ✅ Testing Agent: 95% pass rate
+- ✅ All 8 chapters functional
+- ✅ All games working
+- ✅ Proposal flow complete
+- ✅ Navigation working
+- ✅ Personal details correct
 
-## What's Working
-- Complete landing experience with access gate
-- All 7 chapters with unique stories
-- All 7 mini-games functional
-- All 7 reflection questionnaires
-- Chapter progression and unlock system
-- localStorage persistence
-- Dark psychological thriller theme
-
-## Future/Backlog Tasks
-1. **P2 - Photo Placeholders:** Allow user to upload actual photos
-2. **P2 - Ambient Sounds:** Add subtle background audio
-3. **P3 - Final Choice Page:** Flesh out the irreversible proposal choice
-4. **P3 - ESLint Cleanup:** Address 84 code quality warnings
+## Future/Backlog
+1. **P2** - Add actual photos to placeholders
+2. **P2** - Implement ambient sounds
+3. **P3** - Mobile responsive polish
+4. **P3** - Add animations between phases
 
 ---
 *Last Updated: Feb 4, 2026*
-*Status: MVP Complete - All Core Features Working*
+*Status: MVP Complete - Valentine Week Ready for Argha ❤️*
