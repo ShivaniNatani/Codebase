@@ -208,10 +208,6 @@ const Chapter2 = () => {
           {showPuzzle && !puzzleSolved && (
             <MotorcycleRacingGame onSuccess={handlePuzzleSuccess} />
           )}
-              hint="Silicon Valley of India"
-              onSuccess={handlePuzzleSuccess}
-            />
-          )}
 
           {puzzleSolved && (
             <motion.div
