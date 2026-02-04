@@ -226,7 +226,7 @@ const LandingPage = () => {
                   </Button>
 
                   <p className="text-xs font-mono text-muted-foreground/50">
-                    7 days. 7 chapters. 1 truth.
+                    8 days. 8 chapters. 1 love story.
                   </p>
                 </div>
               </motion.div>

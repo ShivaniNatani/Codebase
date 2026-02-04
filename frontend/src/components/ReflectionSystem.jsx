@@ -100,22 +100,22 @@ export const ReflectionQuestions = ({ questions, onComplete, reflectionPrompt })
   );
 };
 
-export const JourneyProgress = ({ currentChapter }) => {
-  const milestones = ['Origin', 'Growth', 'Struggle', 'Rise', 'Destiny', 'Together', 'Forever'];
+export const JourneyProgress = ({ currentChapter, totalChapters = 8 }) => {
+  const milestones = ['Origin', 'Alpha', 'Bitter', 'Glitch', 'Opposites', 'Support', 'Revelation', 'Forever'];
   
   return (
     <div className="bg-card/50 border border-border rounded-lg p-6">
       <h4 className="text-xs font-mono text-primary mb-4 text-center">JOURNEY TO PROPOSAL</h4>
       <div className="relative">
         <div className="absolute top-5 left-0 right-0 h-0.5 bg-muted" />
-        <div className="absolute top-5 left-0 h-0.5 bg-primary transition-all" style={{ width: `${((currentChapter - 1) / 6) * 100}%` }} />
+        <div className="absolute top-5 left-0 h-0.5 bg-primary transition-all" style={{ width: `${((currentChapter - 1) / (totalChapters - 1)) * 100}%` }} />
         <div className="relative flex justify-between">
           {milestones.map((m, i) => (
             <div key={i} className="flex flex-col items-center">
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm transition-all ${i + 1 < currentChapter ? 'bg-green-500 text-white' : i + 1 === currentChapter ? 'bg-primary text-primary-foreground ring-4 ring-primary/30' : 'bg-muted text-muted-foreground'}`}>
+              <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full flex items-center justify-center text-xs md:text-sm transition-all ${i + 1 < currentChapter ? 'bg-green-500 text-white' : i + 1 === currentChapter ? 'bg-primary text-primary-foreground ring-4 ring-primary/30' : 'bg-muted text-muted-foreground'}`}>
                 {i + 1 < currentChapter ? <i className="fas fa-check" /> : i + 1}
               </div>
-              <span className={`text-xs mt-2 ${i + 1 <= currentChapter ? 'text-foreground' : 'text-muted-foreground'}`}>{m}</span>
+              <span className={`text-[10px] md:text-xs mt-2 ${i + 1 <= currentChapter ? 'text-foreground' : 'text-muted-foreground'}`}>{m}</span>
             </div>
           ))}
         </div>
