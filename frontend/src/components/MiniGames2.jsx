@@ -421,152 +421,78 @@ export const PhoneConnectionGame = ({ onSuccess }) => {
   );
 };
 
-// Chapter 6: Home Builder Tetris Game
-const HOME_PIECES = [
-  { shape: [[1, 1], [1, 1]], color: '#ef4444', name: 'Window' },
-  { shape: [[1, 1, 1, 1]], color: '#3b82f6', name: 'Beam' },
-  { shape: [[1, 1, 1], [0, 1, 0]], color: '#22c55e', name: 'Roof' },
-  { shape: [[1, 1, 0], [0, 1, 1]], color: '#f59e0b', name: 'Stairs' },
-  { shape: [[1, 0], [1, 0], [1, 1]], color: '#8b5cf6', name: 'Door' },
-];
-
+// Chapter 6: Home Builder - Click to Build Game (Simplified)
 export const HomeBuilderGame = ({ onSuccess }) => {
-  const [grid, setGrid] = useState(Array(10).fill(null).map(() => Array(8).fill(0)));
-  const [currentPiece, setCurrentPiece] = useState(null);
+  const [blocks, setBlocks] = useState([]);
   const [score, setScore] = useState(0);
   const [gameWon, setGameWon] = useState(false);
   const targetScore = 50;
 
-  const spawnPiece = useCallback(() => {
-    const piece = HOME_PIECES[Math.floor(Math.random() * HOME_PIECES.length)];
-    setCurrentPiece({
-      ...piece,
-      x: Math.floor((8 - piece.shape[0].length) / 2),
-      y: 0,
-    });
-  }, []);
+  const buildingParts = [
+    { id: 1, name: 'Foundation', emoji: '🧱', points: 10 },
+    { id: 2, name: 'Walls', emoji: '🪵', points: 10 },
+    { id: 3, name: 'Window', emoji: '🪟', points: 10 },
+    { id: 4, name: 'Door', emoji: '🚪', points: 10 },
+    { id: 5, name: 'Roof', emoji: '🏠', points: 10 },
+  ];
 
-  useEffect(() => {
-    if (!currentPiece && !gameWon) {
-      spawnPiece();
-    }
-  }, [currentPiece, gameWon, spawnPiece]);
-
-  const handleKeyDown = useCallback((e) => {
-    if (!currentPiece || gameWon) return;
-
-    let newX = currentPiece.x;
-    let newY = currentPiece.y;
-
-    if (e.key === 'ArrowLeft') newX--;
-    if (e.key === 'ArrowRight') newX++;
-    if (e.key === 'ArrowDown') newY++;
-
-    // Check bounds
-    const width = currentPiece.shape[0].length;
-    const height = currentPiece.shape.length;
+  const handlePlacePart = (part) => {
+    if (gameWon) return;
     
-    if (newX >= 0 && newX + width <= 8 && newY + height <= 10) {
-      setCurrentPiece(prev => ({ ...prev, x: newX, y: newY }));
-    }
-
-    if (e.key === ' ') {
-      // Drop and place
-      placePiece();
-    }
-  }, [currentPiece, gameWon]);
-
-  useEffect(() => {
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [handleKeyDown]);
-
-  const placePiece = () => {
-    if (!currentPiece) return;
-
-    const newGrid = [...grid.map(row => [...row])];
-    let placed = false;
-
-    // Find the lowest valid position
-    let finalY = currentPiece.y;
-    while (finalY + currentPiece.shape.length < 10) {
-      let canMove = true;
-      for (let py = 0; py < currentPiece.shape.length; py++) {
-        for (let px = 0; px < currentPiece.shape[0].length; px++) {
-          if (currentPiece.shape[py][px] && newGrid[finalY + py + 1]?.[currentPiece.x + px]) {
-            canMove = false;
-          }
-        }
-      }
-      if (canMove) finalY++;
-      else break;
-    }
-
-    // Place the piece
-    for (let py = 0; py < currentPiece.shape.length; py++) {
-      for (let px = 0; px < currentPiece.shape[0].length; px++) {
-        if (currentPiece.shape[py][px]) {
-          newGrid[finalY + py][currentPiece.x + px] = currentPiece.color;
-          placed = true;
-        }
-      }
-    }
-
-    if (placed) {
-      setGrid(newGrid);
-      const newScore = score + 10;
-      setScore(newScore);
-      
-      if (newScore >= targetScore) {
-        setGameWon(true);
-        setTimeout(() => onSuccess?.(), 1500);
-      } else {
-        setCurrentPiece(null);
-      }
+    setBlocks(prev => [...prev, { ...part, placed: Date.now() }]);
+    const newScore = score + part.points;
+    setScore(newScore);
+    
+    if (newScore >= targetScore) {
+      setGameWon(true);
+      setTimeout(() => onSuccess?.(), 1500);
     }
   };
 
   return (
-    <div className="max-w-md mx-auto">
-      {/* Score */}
+    <div className="max-w-lg mx-auto">
       <div className="flex justify-between mb-4">
-        <span className="text-sm text-muted-foreground">Build your home together</span>
+        <span className="text-sm text-muted-foreground">Click parts to build your home</span>
         <span className="text-primary font-mono">{score}/{targetScore} 🏠</span>
       </div>
 
-      {/* Grid */}
-      <div className="bg-card border-2 border-border rounded-lg p-2 inline-block mx-auto">
-        <div className="grid gap-0.5" style={{ gridTemplateColumns: 'repeat(8, 1fr)' }}>
-          {grid.map((row, y) =>
-            row.map((cell, x) => {
-              // Check if current piece overlaps
-              let pieceColor = null;
-              if (currentPiece) {
-                const relX = x - currentPiece.x;
-                const relY = y - currentPiece.y;
-                if (
-                  relX >= 0 && relX < currentPiece.shape[0].length &&
-                  relY >= 0 && relY < currentPiece.shape.length &&
-                  currentPiece.shape[relY][relX]
-                ) {
-                  pieceColor = currentPiece.color;
-                }
-              }
-
-              return (
-                <div
-                  key={`${x}-${y}`}
-                  className="w-8 h-8 rounded-sm border border-border/30"
-                  style={{ backgroundColor: pieceColor || cell || 'hsl(var(--muted))' }}
-                />
-              );
-            })
-          )}
+      {/* Building Area */}
+      <div className="bg-card border-2 border-border rounded-lg p-6 min-h-[250px] relative mb-4">
+        <div className="flex flex-wrap gap-2 justify-center">
+          {blocks.map((block, i) => (
+            <motion.div
+              key={block.placed}
+              initial={{ scale: 0, y: -50 }}
+              animate={{ scale: 1, y: 0 }}
+              className="text-4xl"
+            >
+              {block.emoji}
+            </motion.div>
+          ))}
         </div>
+        
+        {blocks.length === 0 && (
+          <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
+            Click parts below to start building
+          </div>
+        )}
       </div>
 
-      <div className="text-center text-xs text-muted-foreground mt-4">
-        ← → to move | ↓ to drop faster | SPACE to place
+      {/* Building Parts */}
+      <div className="grid grid-cols-5 gap-2">
+        {buildingParts.map(part => (
+          <motion.button
+            key={part.id}
+            onClick={() => handlePlacePart(part)}
+            disabled={gameWon}
+            className="p-4 bg-card border border-border rounded-lg hover:border-primary transition-colors disabled:opacity-50"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <div className="text-3xl mb-1">{part.emoji}</div>
+            <div className="text-xs text-muted-foreground">{part.name}</div>
+          </motion.button>
+        ))}
       </div>
 
       {/* Win Overlay */}
@@ -578,7 +504,13 @@ export const HomeBuilderGame = ({ onSuccess }) => {
             className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"
           >
             <div className="text-center">
-              <div className="text-6xl mb-4">🏠</div>
+              <motion.div 
+                className="text-6xl mb-4"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 0.5, repeat: 3 }}
+              >
+                🏠
+              </motion.div>
               <h3 className="text-2xl font-bold text-green-400">HOME BUILT!</h3>
               <p className="text-muted-foreground">Feb 2025 - Moving in together</p>
             </div>
