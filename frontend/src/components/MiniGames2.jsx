@@ -422,6 +422,14 @@ export const PhoneConnectionGame = ({ onSuccess }) => {
 };
 
 // Chapter 6: Home Builder Tetris Game
+const HOME_PIECES = [
+  { shape: [[1, 1], [1, 1]], color: '#ef4444', name: 'Window' },
+  { shape: [[1, 1, 1, 1]], color: '#3b82f6', name: 'Beam' },
+  { shape: [[1, 1, 1], [0, 1, 0]], color: '#22c55e', name: 'Roof' },
+  { shape: [[1, 1, 0], [0, 1, 1]], color: '#f59e0b', name: 'Stairs' },
+  { shape: [[1, 0], [1, 0], [1, 1]], color: '#8b5cf6', name: 'Door' },
+];
+
 export const HomeBuilderGame = ({ onSuccess }) => {
   const [grid, setGrid] = useState(Array(10).fill(null).map(() => Array(8).fill(0)));
   const [currentPiece, setCurrentPiece] = useState(null);
@@ -429,16 +437,8 @@ export const HomeBuilderGame = ({ onSuccess }) => {
   const [gameWon, setGameWon] = useState(false);
   const targetScore = 50;
 
-  const pieces = [
-    { shape: [[1, 1], [1, 1]], color: '#ef4444', name: 'Window' }, // Square
-    { shape: [[1, 1, 1, 1]], color: '#3b82f6', name: 'Beam' }, // Line
-    { shape: [[1, 1, 1], [0, 1, 0]], color: '#22c55e', name: 'Roof' }, // T
-    { shape: [[1, 1, 0], [0, 1, 1]], color: '#f59e0b', name: 'Stairs' }, // S
-    { shape: [[1, 0], [1, 0], [1, 1]], color: '#8b5cf6', name: 'Door' }, // L
-  ];
-
   const spawnPiece = useCallback(() => {
-    const piece = pieces[Math.floor(Math.random() * pieces.length)];
+    const piece = HOME_PIECES[Math.floor(Math.random() * HOME_PIECES.length)];
     setCurrentPiece({
       ...piece,
       x: Math.floor((8 - piece.shape[0].length) / 2),
