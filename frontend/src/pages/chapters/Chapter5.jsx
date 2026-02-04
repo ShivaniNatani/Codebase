@@ -218,29 +218,25 @@ const Chapter5 = () => {
               <span className="text-xs font-mono text-primary">CHAPTER CHALLENGE</span>
             </div>
             <h3 className="text-xl font-bold text-foreground mb-2">
-              The Golden One
+              Connect the Call
             </h3>
             <p className="text-muted-foreground text-sm">
-              What's the name of the golden retriever that became part of the family?
+              Draw a path to connect the wrong number that changed everything
             </p>
           </div>
 
           {!showPuzzle && !puzzleSolved && (
             <div className="text-center">
-              <Button onClick={() => setShowPuzzle(true)} variant="outline">
-                <i className="fas fa-lock mr-2" />
-                Attempt Puzzle
+              <Button onClick={() => setShowPuzzle(true)} variant="outline" size="lg">
+                <i className="fas fa-phone mr-2" />
+                Make the Connection
               </Button>
+              <p className="text-xs text-muted-foreground mt-2">Draw from phone to phone without hitting obstacles</p>
             </div>
           )}
 
           {showPuzzle && !puzzleSolved && (
-            <PuzzleInput
-              correctAnswer="scotch"
-              placeholder="Enter the name..."
-              hint="A type of whiskey, also a good boy"
-              onSuccess={handlePuzzleSuccess}
-            />
+            <PhoneConnectionGame onSuccess={handlePuzzleSuccess} />
           )}
 
           {puzzleSolved && (
