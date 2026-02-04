@@ -197,17 +197,17 @@ const Chapter2 = () => {
 
           {!showPuzzle && !puzzleSolved && (
             <div className="text-center">
-              <Button onClick={() => setShowPuzzle(true)} variant="outline">
-                <i className="fas fa-lock mr-2" />
-                Attempt Puzzle
+              <Button onClick={() => setShowPuzzle(true)} variant="outline" size="lg">
+                <i className="fas fa-motorcycle mr-2" />
+                Race to Bangalore
               </Button>
+              <p className="text-xs text-muted-foreground mt-2">Navigate through traffic to reach your destination</p>
             </div>
           )}
 
           {showPuzzle && !puzzleSolved && (
-            <PuzzleInput
-              correctAnswer="bangalore"
-              placeholder="Enter the city..."
+            <MotorcycleRacingGame onSuccess={handlePuzzleSuccess} />
+          )}
               hint="Silicon Valley of India"
               onSuccess={handlePuzzleSuccess}
             />
