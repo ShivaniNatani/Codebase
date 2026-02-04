@@ -130,6 +130,7 @@ export const GameProvider = ({ children }) => {
     completeChapter,
     savePuzzleAnswer,
     saveReflectionAnswer,
+    findEasterEgg,
     makeFinalChoice,
     toggleSound,
     resetProgress,
