@@ -2,7 +2,7 @@ import { useState, useEffect, useRef, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 export const TerminalText = ({ 
-  text, 
+  text = '', 
   speed = 30, 
   delay = 0, 
   className = '',
@@ -14,6 +14,8 @@ export const TerminalText = ({
   const [isComplete, setIsComplete] = useState(false);
   const indexRef = useRef(0);
   const hasCompletedRef = useRef(false);
+  
+  const safeText = text || '';
 
   useEffect(() => {
     // Reset state when text changes
@@ -22,11 +24,17 @@ export const TerminalText = ({
     setDisplayedText('');
     setIsComplete(false);
 
+    if (!safeText) {
+      setIsComplete(true);
+      onComplete?.();
+      return;
+    }
+
     const startTimer = setTimeout(() => {
       const timer = setInterval(() => {
-        if (indexRef.current < text.length) {
+        if (indexRef.current < safeText.length) {
           indexRef.current++;
-          setDisplayedText(text.slice(0, indexRef.current));
+          setDisplayedText(safeText.slice(0, indexRef.current));
         } else if (!hasCompletedRef.current) {
           hasCompletedRef.current = true;
           setIsComplete(true);
@@ -39,7 +47,7 @@ export const TerminalText = ({
     }, delay);
 
     return () => clearTimeout(startTimer);
-  }, [text, speed, delay]);
+  }, [safeText, speed, delay]);
 
   // Separate effect for onComplete to avoid stale closure
   useEffect(() => {
