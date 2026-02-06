@@ -6,32 +6,32 @@
 
 @layer base {
     :root {
-        /* PSYCHOLOGICAL THRILLER - Deep Blacks & Blood Red */
-        --background: 0 0% 3%;
+        /* ROMANTIC VALENTINE - Deep Blacks & Rose Pink */
+        --background: 340 15% 4%;
         --foreground: 0 0% 95%;
         
         /* Cards and surfaces */
-        --card: 0 0% 5%;
+        --card: 340 10% 7%;
         --card-foreground: 0 0% 95%;
-        --popover: 0 0% 6%;
+        --popover: 340 10% 8%;
         --popover-foreground: 0 0% 95%;
         
-        /* Blood Red Primary */
-        --primary: 0 72% 45%;
+        /* Rose Pink Primary */
+        --primary: 340 82% 52%;
         --primary-foreground: 0 0% 98%;
-        --primary-glow: 0 85% 55%;
-        --primary-deep: 0 80% 30%;
+        --primary-glow: 340 90% 60%;
+        --primary-deep: 340 75% 35%;
         
-        /* Secondary - Dark Steel */
-        --secondary: 0 0% 12%;
+        /* Secondary - Soft Dark */
+        --secondary: 340 10% 12%;
         --secondary-foreground: 0 0% 85%;
         
-        /* Muted - Charcoal */
-        --muted: 0 0% 15%;
+        /* Muted - Charcoal with warmth */
+        --muted: 340 8% 15%;
         --muted-foreground: 0 0% 55%;
         
-        /* Accent - Crimson Glow */
-        --accent: 0 65% 50%;
+        /* Accent - Soft Rose */
+        --accent: 350 70% 55%;
         --accent-foreground: 0 0% 98%;
         
         /* Destructive */
@@ -39,14 +39,14 @@
         --destructive-foreground: 0 0% 98%;
         
         /* Borders & inputs */
-        --border: 0 0% 18%;
-        --input: 0 0% 12%;
-        --ring: 0 72% 45%;
+        --border: 340 20% 18%;
+        --input: 340 15% 12%;
+        --ring: 340 82% 52%;
         
         /* Chapter Colors */
-        --chapter-locked: 0 0% 20%;
-        --chapter-unlocked: 0 72% 45%;
-        --chapter-active: 0 85% 55%;
+        --chapter-locked: 340 10% 20%;
+        --chapter-unlocked: 340 82% 52%;
+        --chapter-active: 340 90% 60%;
         
         /* Terminal Colors */
         --terminal-green: 120 100% 40%;
