@@ -16,29 +16,33 @@ const Protocol003 = () => {
   const [showEasterEgg, setShowEasterEgg] = useState(false);
   const [wordAnswer, setWordAnswer] = useState('');
   const [wordSolved, setWordSolved] = useState(false);
-  const [memoryAnswer, setMemoryAnswer] = useState('');
-  const [memorySolved, setMemorySolved] = useState(false);
+  const [selectedEmotions, setSelectedEmotions] = useState([]);
 
   const handleWordSubmit = () => {
     const answer = wordAnswer.toUpperCase().trim();
     if (['BETRAYAL', 'BETRAYED', 'TRUST', 'HEARTBREAK'].includes(answer)) {
       setWordSolved(true);
-      setTimeout(() => setPhase('memory'), 1500);
+      setTimeout(() => setPhase('emotions'), 1500);
     } else {
       setShowError(true);
       setTimeout(() => setShowError(false), 1000);
     }
   };
 
-  const handleMemorySubmit = () => {
-    // Answer: 30 or 35 (kilometers)
-    const answer = memoryAnswer.trim();
-    if (['30', '35', '30-35', '35KM', '30KM'].includes(answer.toUpperCase())) {
-      setMemorySolved(true);
-      setTimeout(() => setPhase('reflection'), 1500);
+  const correctEmotions = ['wall', 'guard', 'alpha'];
+  
+  const handleEmotionSelect = (emotion) => {
+    if (selectedEmotions.includes(emotion)) {
+      setSelectedEmotions(selectedEmotions.filter(e => e !== emotion));
     } else {
-      setShowError(true);
-      setTimeout(() => setShowError(false), 1000);
+      const newSelected = [...selectedEmotions, emotion];
+      setSelectedEmotions(newSelected);
+      
+      // Check if 3 correct emotions selected
+      const correctCount = newSelected.filter(e => correctEmotions.includes(e)).length;
+      if (correctCount >= 3) {
+        setTimeout(() => setPhase('reflection'), 1500);
+      }
     }
   };
 
@@ -53,6 +57,15 @@ const Protocol003 = () => {
   };
 
   const hasFoundEgg = easterEggsFound?.includes(2);
+
+  const emotionOptions = [
+    { id: 'wall', label: 'Built walls', emoji: '🧱', correct: true },
+    { id: 'guard', label: 'Raised guard', emoji: '🛡️', correct: true },
+    { id: 'alpha', label: 'Became the Alpha', emoji: '👑', correct: true },
+    { id: 'cry', label: 'Cried for days', emoji: '😢', correct: false },
+    { id: 'revenge', label: 'Sought revenge', emoji: '😤', correct: false },
+    { id: 'gave_up', label: 'Gave up on love', emoji: '💀', correct: false },
+  ];
 
   return (
     <ChapterLayout
@@ -88,12 +101,26 @@ const Protocol003 = () => {
                 </h2>
               </div>
 
+              {/* Chocolate visual */}
+              <div className="text-center py-4">
+                <motion.div
+                  animate={{ rotate: [0, 5, -5, 0] }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                  className="text-5xl"
+                >
+                  🍫💔
+                </motion.div>
+                <p className="text-sm text-muted-foreground mt-2 font-serif italic">
+                  "Some bitterness can't be sweetened"
+                </p>
+              </div>
+
               <motion.div className="bg-card border border-destructive/30 rounded-lg p-6">
                 <TerminalBlock
                   lines={[
                     { text: 'RELATIONSHIP_STATUS: TERMINATED', prefix: '> ', className: 'text-destructive' },
-                    { text: 'DAILY_COMMUTE: 30-35 KM (ONE WAY)', prefix: '> ', className: 'text-yellow-400' },
-                    { text: 'INVESTMENT: TEACHING_JAVA', prefix: '> ' },
+                    { text: 'INVESTMENT: EVERYTHING', prefix: '> ', className: 'text-yellow-400' },
+                    { text: 'TAUGHT_HER: JAVA_SKILLS', prefix: '> ' },
                     { text: 'HER_RESULT: TOP_PERFORMER', prefix: '> ', className: 'text-green-400' },
                     { text: 'HIS_REWARD: ████████', prefix: '> ', className: 'text-destructive' },
                     { text: 'LESSON: WALLS_CONSTRUCTED', prefix: '> ' },
@@ -103,7 +130,7 @@ const Protocol003 = () => {
 
               <StorySection>
                 <p className="text-foreground/90 text-lg leading-relaxed font-mono">
-                  He gave everything. Drove 30-35 kilometers. Every. Single. Day.
+                  He gave her everything. His time. His knowledge. His heart.
                   Taught her Java until she became the best.
                   And she used that success to walk away.
                 </p>
@@ -161,48 +188,44 @@ const Protocol003 = () => {
             </motion.div>
           )}
 
-          {phase === 'memory' && (
+          {phase === 'emotions' && (
             <motion.div
-              key="memory"
+              key="emotions"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               className="space-y-8"
             >
               <div className="text-center">
-                <div className="text-5xl mb-4">🚗</div>
-                <h2 className="text-2xl font-bold font-mono text-foreground">MEMORY TEST</h2>
+                <div className="text-5xl mb-4">🛡️</div>
+                <h2 className="text-2xl font-bold font-mono text-foreground">RESPONSE ANALYSIS</h2>
+                <p className="text-muted-foreground mt-2">How did he respond to the betrayal? (Select 3)</p>
               </div>
 
-              <div className="bg-card border border-yellow-500/30 rounded-lg p-8 max-w-xl mx-auto">
-                <p className="text-foreground text-lg leading-relaxed text-center mb-8">
-                  How many kilometers did he drive <span className="text-primary font-bold">one way</span> every day to see her?
-                </p>
-
-                <div className="flex gap-3 max-w-sm mx-auto">
-                  <input
-                    type="text"
-                    value={memoryAnswer}
-                    onChange={(e) => setMemoryAnswer(e.target.value)}
-                    placeholder="Enter number..."
-                    className={`flex-1 bg-background border rounded-lg px-4 py-3 font-mono text-center ${showError ? 'border-destructive' : 'border-border'}`}
-                    onKeyDown={(e) => e.key === 'Enter' && handleMemorySubmit()}
-                  />
-                  <Button onClick={handleMemorySubmit} className="bg-primary hover:bg-primary/90">
-                    <i className="fas fa-check" />
-                  </Button>
-                </div>
-
-                {memorySolved && (
-                  <motion.p
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="text-center text-green-400 font-mono mt-4"
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4 max-w-2xl mx-auto">
+                {emotionOptions.map((option) => (
+                  <motion.button
+                    key={option.id}
+                    onClick={() => handleEmotionSelect(option.id)}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={`p-4 rounded-lg border text-center transition-all ${
+                      selectedEmotions.includes(option.id)
+                        ? option.correct 
+                          ? 'bg-green-500/20 border-green-500'
+                          : 'bg-red-500/20 border-red-500'
+                        : 'bg-card border-border hover:border-primary'
+                    }`}
                   >
-                    ✓ CORRECT: That's dedication that went unappreciated
-                  </motion.p>
-                )}
+                    <div className="text-3xl mb-2">{option.emoji}</div>
+                    <p className="text-sm text-foreground">{option.label}</p>
+                  </motion.button>
+                ))}
               </div>
+
+              <p className="text-center text-sm text-muted-foreground">
+                {selectedEmotions.filter(e => correctEmotions.includes(e)).length}/3 correct responses
+              </p>
             </motion.div>
           )}
 
@@ -224,13 +247,23 @@ const Protocol003 = () => {
                   <p className="text-foreground mb-4">
                     After the betrayal, what did you tell yourself to keep going?
                   </p>
-                  <textarea
-                    placeholder="What got you through..."
-                    className="w-full bg-background border border-border rounded-lg px-4 py-3 min-h-[100px] mb-4"
-                  />
-                  <Button onClick={handleReflectionComplete} className="w-full bg-primary hover:bg-primary/90">
-                    Continue
-                  </Button>
+                  <div className="grid grid-cols-1 gap-3">
+                    {[
+                      'I will become stronger',
+                      'Her loss, not mine',
+                      'The right one will see my worth',
+                      'Pain is temporary, growth is permanent',
+                      'I became the Alpha'
+                    ].map((option) => (
+                      <button
+                        key={option}
+                        className="bg-background border border-border rounded-lg px-4 py-3 text-sm hover:border-primary transition-colors text-left"
+                        onClick={handleReflectionComplete}
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             </motion.div>
