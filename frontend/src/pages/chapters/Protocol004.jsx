@@ -153,13 +153,11 @@ const Protocol004 = () => {
               </div>
 
               {/* Hidden Easter Egg */}
-              {!hasFoundEgg && (
-                <div className="text-center">
-                  <p className="text-xs text-muted-foreground/30 cursor-pointer hover:text-primary transition-colors" onClick={handleEasterEggFind}>
-                    [HIDDEN_FRAGMENT_004]
-                  </p>
-                </div>
-              )}
+              <SecretHint 
+                onClick={handleEasterEggFind} 
+                found={hasFoundEgg} 
+                fragmentNumber={4} 
+              />
             </motion.div>
           )}
 
