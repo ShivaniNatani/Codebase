@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ChapterLayout } from '@/components/ChapterLayout';
 import { GlitchText } from '@/components/GlitchText';
+import { SecretHint } from '@/components/SecretHint';
 import { useGame } from '@/context/GameContext';
 
 const ProtocolFinal = () => {
@@ -125,13 +126,11 @@ const ProtocolFinal = () => {
               </motion.div>
 
               {/* Hidden Easter Egg */}
-              {!hasFoundEgg && (
-                <div className="text-center">
-                  <p className="text-xs text-muted-foreground/30 cursor-pointer hover:text-primary transition-colors" onClick={handleEasterEggFind}>
-                    [HIDDEN_FRAGMENT_FINAL]
-                  </p>
-                </div>
-              )}
+              <SecretHint 
+                onClick={handleEasterEggFind} 
+                found={hasFoundEgg} 
+                fragmentNumber={8} 
+              />
             </motion.div>
           )}
 
