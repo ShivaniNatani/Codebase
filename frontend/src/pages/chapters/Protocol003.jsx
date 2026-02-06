@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ChapterLayout, StorySection } from '@/components/ChapterLayout';
 import { TerminalBlock } from '@/components/TerminalText';
 import { GlitchText } from '@/components/GlitchText';
+import { DayCompletionPage } from '@/components/DayCompletion';
 import { useGame } from '@/context/GameContext';
 
 const Protocol003 = () => {
