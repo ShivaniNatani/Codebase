@@ -319,7 +319,7 @@ const ProtocolFinal = () => {
                 {/* Couple Photo */}
                 <div className="bg-card border border-primary rounded-lg p-4 max-w-md mx-auto">
                   <img 
-                    src="https://customer-assets.emergentagent.com/job_dark-valentine/artifacts/p20n7hmx_IMG_8293.jpeg"
+                    src="https://customer-assets.emergentagent.com/job_ab423600-82ad-4e17-8af4-9ccff7b6ecd6/artifacts/2k4adqyb_FullSizeRender.jpeg"
                     alt="Us"
                     className="rounded-lg w-full"
                   />
