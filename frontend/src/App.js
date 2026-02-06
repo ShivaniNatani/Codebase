@@ -11,6 +11,7 @@ import Protocol006 from "@/pages/chapters/Protocol006";
 import Protocol007 from "@/pages/chapters/Protocol007";
 import ProtocolFinal from "@/pages/chapters/ProtocolFinal";
 import MidwayCheckpoint from "@/pages/MidwayCheckpoint";
+import JourneyStats from "@/pages/JourneyStats";
 import FinalChoice from "@/pages/FinalChoice";
 import { GameProvider } from "@/context/GameContext";
 import "@/App.css";
@@ -33,6 +34,7 @@ function App() {
             <Route path="/protocol-006" element={<Protocol006 />} />
             <Route path="/protocol-007" element={<Protocol007 />} />
             <Route path="/protocol-final" element={<ProtocolFinal />} />
+            <Route path="/journey-stats" element={<JourneyStats />} />
             <Route path="/final" element={<FinalChoice />} />
             {/* Legacy routes for backwards compatibility */}
             <Route path="/rose-day" element={<Protocol001 />} />
