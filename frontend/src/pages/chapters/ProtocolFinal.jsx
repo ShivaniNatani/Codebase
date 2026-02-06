@@ -282,116 +282,81 @@ const ProtocolFinal = () => {
               animate={{ opacity: 1 }}
               className="min-h-[80vh] flex flex-col items-center justify-center py-12"
             >
-              {choice === 'yes' ? (
+              <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: 'spring', duration: 1 }}
+                className="text-center space-y-8"
+              >
                 <motion.div
-                  initial={{ scale: 0 }}
-                  animate={{ scale: 1 }}
-                  transition={{ type: 'spring', duration: 1 }}
-                  className="text-center space-y-8"
+                  animate={{ 
+                    scale: [1, 1.2, 1],
+                    rotate: [0, 10, -10, 0]
+                  }}
+                  transition={{ duration: 2, repeat: 3 }}
+                  className="text-9xl"
                 >
-                  <motion.div
-                    animate={{ 
-                      scale: [1, 1.2, 1],
-                      rotate: [0, 10, -10, 0]
-                    }}
-                    transition={{ duration: 2, repeat: 3 }}
-                    className="text-9xl"
+                  💍❤️💍
+                </motion.div>
+
+                <h1 className="text-4xl md:text-6xl font-bold text-primary font-mono">
+                  YES!
+                </h1>
+
+                <div className="max-w-xl mx-auto space-y-6">
+                  <p className="text-2xl text-foreground font-serif">
+                    You said yes.
+                  </p>
+                  <p className="text-xl text-foreground/80 leading-relaxed">
+                    From a wrong number to forever. From Dhanbad to our future.
+                    From Alpha to mine. From protocols to promises.
+                  </p>
+                  <p className="text-primary text-2xl font-bold">
+                    I love you, Argha. Forever.
+                  </p>
+                </div>
+
+                {/* Couple Photo */}
+                <div className="bg-card border border-primary rounded-lg p-4 max-w-md mx-auto">
+                  <img 
+                    src="https://customer-assets.emergentagent.com/job_dark-valentine/artifacts/p20n7hmx_IMG_8293.jpeg"
+                    alt="Us"
+                    className="rounded-lg w-full"
+                  />
+                  <p className="text-sm text-muted-foreground mt-2 italic">
+                    The beginning of forever. 💕
+                  </p>
+                </div>
+
+                <div className="bg-gradient-to-br from-pink-500/20 to-primary/20 border border-primary rounded-lg p-8 mt-8">
+                  <p className="text-foreground font-serif italic text-lg">
+                    "The boy from Dhanbad found his greatest achievement—
+                    not Amazon, not success, but love. <span className="text-primary font-bold">He found me. And I found him.</span>"
+                  </p>
+                  <p className="text-pink-400 font-medium mt-4">
+                    — Your forever Shivani 💍
+                  </p>
+                </div>
+
+                <div className="pt-8 space-y-4">
+                  <p className="text-sm text-muted-foreground font-mono">
+                    PROTOCOL_VALENTINE: COMPLETE • ALL 8 CHAPTERS UNLOCKED
+                  </p>
+                  <p className="text-sm text-primary">
+                    <i className="fas fa-gem mr-2" />
+                    {totalEggs}/8 Secret Fragments Discovered
+                  </p>
+                  <Button
+                    onClick={() => navigate('/chapters')}
+                    variant="outline"
+                    size="lg"
+                    data-testid="revisit-story-btn"
                   >
-                    💍❤️💍
-                  </motion.div>
-
-                  <h1 className="text-4xl md:text-6xl font-bold text-primary font-mono">
-                    YES!
-                  </h1>
-
-                  <div className="max-w-xl mx-auto space-y-6">
-                    <p className="text-2xl text-foreground font-serif">
-                      You said yes.
-                    </p>
-                    <p className="text-xl text-foreground/80 leading-relaxed">
-                      From a wrong number to forever. From Dhanbad to our future.
-                      From Alpha to mine. From protocols to promises.
-                    </p>
-                    <p className="text-primary text-2xl font-bold">
-                      I love you, Argha. Forever.
-                    </p>
-                  </div>
-
-                  {/* Their Photo */}
-                  <div className="bg-card border border-primary rounded-lg p-4 max-w-md mx-auto">
-                    <img 
-                      src="https://customer-assets.emergentagent.com/job_dark-valentine/artifacts/bs6hswev_IMG_8684.jpeg"
-                      alt="Us"
-                      className="rounded-lg w-full"
-                    />
-                    <p className="text-sm text-muted-foreground mt-2 italic">
-                      The beginning of forever. 💕
-                    </p>
-                  </div>
-
-                  <div className="bg-gradient-to-br from-pink-500/20 to-primary/20 border border-primary rounded-lg p-8 mt-8">
-                    <p className="text-foreground font-serif italic text-lg">
-                      "The boy from Dhanbad found his greatest achievement—
-                      not Amazon, not success, but love. <span className="text-primary font-bold">He found me. And I found him.</span>"
-                    </p>
-                    <p className="text-pink-400 font-medium mt-4">
-                      — Your forever Shivani 💍
-                    </p>
-                  </div>
-
-                  <div className="pt-8 space-y-4">
-                    <p className="text-sm text-muted-foreground font-mono">
-                      PROTOCOL_VALENTINE: COMPLETE • ALL 8 CHAPTERS UNLOCKED
-                    </p>
-                    <p className="text-sm text-primary">
-                      <i className="fas fa-gem mr-2" />
-                      {totalEggs}/8 Secret Fragments Discovered
-                    </p>
-                    <Button
-                      onClick={() => navigate('/chapters')}
-                      variant="outline"
-                      size="lg"
-                    >
-                      <i className="fas fa-book mr-2" />
-                      Revisit Our Story
-                    </Button>
-                  </div>
-                </motion.div>
-              ) : (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  className="text-center space-y-8 max-w-xl mx-auto"
-                >
-                  <div className="text-6xl">💭</div>
-                  
-                  <h2 className="text-2xl font-bold text-foreground font-mono">
-                    I understand.
-                  </h2>
-                  
-                  <p className="text-foreground/80 leading-relaxed">
-                    Love isn't something to rush. Take your time, Argha.
-                    I'll be here when you're ready. That's what forever means—
-                    <span className="text-primary"> waiting without conditions</span>.
-                  </p>
-                  
-                  <p className="text-muted-foreground font-serif italic">
-                    "The Alpha doesn't make decisions under pressure. He makes them when he's certain.
-                    And I love that about you."
-                  </p>
-
-                  <div className="pt-8">
-                    <Button
-                      onClick={() => navigate('/chapters')}
-                      variant="outline"
-                      size="lg"
-                    >
-                      <i className="fas fa-arrow-left mr-2" />
-                      Back to Protocols
-                    </Button>
-                  </div>
-                </motion.div>
-              )}
+                    <i className="fas fa-book mr-2" />
+                    Revisit Our Story
+                  </Button>
+                </div>
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
