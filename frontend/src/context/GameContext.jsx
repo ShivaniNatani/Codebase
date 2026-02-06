@@ -67,7 +67,7 @@ export const GameProvider = ({ children }) => {
       newCompleted[chapterIndex] = true;
       
       const newUnlocked = [...prev.chaptersUnlocked];
-      if (chapterIndex < 6) {
+      if (chapterIndex < 7) {
         newUnlocked[chapterIndex + 1] = true;
       }
       
@@ -78,6 +78,13 @@ export const GameProvider = ({ children }) => {
         currentChapter: Math.max(prev.currentChapter, chapterIndex + 1),
       };
     });
+  };
+
+  const markMidwayCheckpointSeen = () => {
+    setGameState(prev => ({
+      ...prev,
+      midwayCheckpointSeen: true,
+    }));
   };
 
   const savePuzzleAnswer = (chapterId, answer) => {
