@@ -14,6 +14,7 @@ import MidwayCheckpoint from "@/pages/MidwayCheckpoint";
 import JourneyStats from "@/pages/JourneyStats";
 import FinalChoice from "@/pages/FinalChoice";
 import { GameProvider } from "@/context/GameContext";
+import { FloatingHearts } from "@/components/RomanticElements";
 import "@/App.css";
 
 function App() {
