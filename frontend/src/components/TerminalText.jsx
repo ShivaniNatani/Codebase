@@ -71,32 +71,36 @@ export const TerminalText = ({
   );
 };
 
-export const TerminalBlock = ({ lines, className = '', onAllComplete }) => {
+export const TerminalBlock = ({ lines = [], className = '', onAllComplete }) => {
   const [currentLine, setCurrentLine] = useState(0);
   const [completedLines, setCompletedLines] = useState([]);
 
+  const safeLines = lines || [];
+
   const handleLineComplete = (index) => {
     setCompletedLines(prev => [...prev, index]);
-    if (index < lines.length - 1) {
+    if (index < safeLines.length - 1) {
       setTimeout(() => setCurrentLine(index + 1), 200);
     } else {
       onAllComplete?.();
     }
   };
 
+  if (!safeLines.length) return null;
+
   return (
     <div className={`space-y-1 ${className}`}>
-      {lines.map((line, index) => (
+      {safeLines.map((line, index) => (
         index <= currentLine && (
           <TerminalText
             key={index}
-            text={line.text}
-            speed={line.speed || 20}
-            delay={index === 0 ? (line.delay || 0) : 0}
-            prefix={line.prefix || '> '}
+            text={line?.text || ''}
+            speed={line?.speed || 20}
+            delay={index === 0 ? (line?.delay || 0) : 0}
+            prefix={line?.prefix || '> '}
             cursor={!completedLines.includes(index)}
             onComplete={() => handleLineComplete(index)}
-            className={line.className || 'text-foreground/80'}
+            className={line?.className || 'text-foreground/80'}
           />
         )
       ))}
