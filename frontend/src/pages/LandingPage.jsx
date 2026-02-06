@@ -230,6 +230,7 @@ const LandingPage = () => {
                   size="lg"
                   onClick={() => navigate('/chapters')}
                   className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg group"
+                  data-testid="initiate-protocol-btn"
                 >
                   <span>INITIATE PROTOCOL</span>
                   <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform" />
