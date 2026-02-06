@@ -250,12 +250,13 @@ const ProtocolFinal = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1 }}
-                className="flex flex-col md:flex-row gap-6"
+                className="flex flex-col items-center"
               >
                 <Button
                   onClick={() => handleChoice('yes')}
                   size="lg"
                   className="bg-primary hover:bg-primary/90 px-12 py-8 text-xl group"
+                  data-testid="yes-forever-btn"
                 >
                   <motion.span
                     whileHover={{ scale: 1.1 }}
@@ -266,19 +267,10 @@ const ProtocolFinal = () => {
                     <i className="fas fa-ring" />
                   </motion.span>
                 </Button>
-
-                <Button
-                  onClick={() => handleChoice('not_yet')}
-                  size="lg"
-                  variant="outline"
-                  className="px-12 py-8 text-xl border-muted-foreground/30 hover:border-primary/50"
-                >
-                  I need more time...
-                </Button>
               </motion.div>
 
               <p className="text-xs text-muted-foreground/50 font-mono">
-                This choice is permanent. Choose with your heart.
+                There is only one answer. There was always only one answer.
               </p>
             </motion.div>
           )}
