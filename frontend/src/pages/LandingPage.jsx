@@ -88,7 +88,7 @@ const LandingPage = () => {
       </button>
 
       {/* Main content */}
-      <div className="container mx-auto px-4 min-h-screen flex flex-col items-center justify-center">
+      <div className="container mx-auto px-4 min-h-screen flex flex-col items-center justify-center relative z-10">
         <AnimatePresence mode="wait">
           {phase === 'init' && (
             <motion.div
