@@ -2,57 +2,74 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 
-// Personal completion messages for each day
+// Personal completion messages for each day with Valentine Week themes
 const completionData = {
   0: {
     title: "ORIGIN: COMPLETE",
-    emoji: "🌱",
+    reveal: "🌹 ROSE DAY",
+    revealMessage: "A rose represents the beginning of love. Your story began in Dhanbad.",
+    emoji: "🌹",
+    visual: "💝",
     message: "You came from nothing, Argha. Coal-dusted streets, a computer, and a dream. Look how far you've come.",
     note: "The boy from Dhanbad became the man I love. Never forget where you started.",
     signature: "— S"
   },
   1: {
-    title: "ASCENSION: COMPLETE", 
-    emoji: "⚡",
+    title: "ASCENSION: COMPLETE",
+    reveal: "💌 PROPOSE DAY", 
+    revealMessage: "The day to express feelings. You proposed your dreams to the universe—and won.",
+    emoji: "💌",
+    visual: "💫",
     message: "The Alpha was born. 18-hour days, no shortcuts, no excuses. You built yourself from scratch.",
     note: "Your determination isn't just impressive—it's the reason I feel safe with you.",
     signature: "— S"
   },
   2: {
     title: "FRACTURE: COMPLETE",
-    emoji: "🛡️",
+    reveal: "🍫 CHOCOLATE DAY",
+    revealMessage: "Chocolate heals. But some wounds need more than sweetness.",
+    emoji: "🍫",
+    visual: "💔",
     message: "She broke you. But broken things, when healed, become stronger at the broken places.",
     note: "Her loss was my gain. And I promise to never make you regret letting me in.",
     signature: "— S"
   },
   3: {
     title: "GLITCH: COMPLETE",
-    reveal: "🌹 ROSE DAY",
-    revealMessage: "Every love story has a beginning. Ours started with a beautiful mistake.",
-    emoji: "🐛",
+    reveal: "🧸 TEDDY DAY",
+    revealMessage: "A teddy brings comfort. That night, a wrong call brought destiny.",
+    emoji: "🧸",
+    visual: "📱✨",
     message: "Wrong number. Right call. The universe has a funny way of fixing its own errors.",
     note: "That night you called, you thought you were reaching someone else. But destiny knew better.",
     signature: "— Your 'Wrong' Shivani 💕"
   },
   4: {
     title: "PARADOX: COMPLETE",
-    reveal: "🧸 TEDDY DAY", 
-    revealMessage: "Opposites don't clash. They complete each other.",
-    emoji: "☯️",
+    reveal: "🤝 PROMISE DAY", 
+    revealMessage: "Promises bind opposites together. We promised to accept each other.",
+    emoji: "🤝",
+    visual: "☯️💕",
     message: "Veg and non-veg. Emotional and logical. Indore and Dhanbad. We make no sense. And yet...",
     note: "You're my calm when I'm chaos. I'm your color when you're grayscale. Perfect paradox.",
     signature: "— S"
   },
   5: {
     title: "ANCHOR: COMPLETE",
-    emoji: "⚓",
+    reveal: "🤗 HUG DAY",
+    revealMessage: "A hug says 'I'm here.' You were always there when I needed you.",
+    emoji: "🤗",
+    visual: "🫂💝",
     message: "Diwali without family. My birthday when my world was falling. You showed up. Every. Single. Time.",
     note: "You think you're not romantic. But every time you chose me over convenience—that was romance.",
     signature: "— S"
   },
   6: {
     title: "REVELATION: COMPLETE",
-    emoji: "👁️",
+    reveal: "💋 KISS DAY",
+    revealMessage: "A kiss seals the truth. The truth is—you found your forever.",
+    emoji: "💋",
+    visual: "👁️💖",
     message: "Now you see it, don't you? After all the struggles, all the walls, all the battles...",
     note: "Your greatest achievement isn't Amazon. It isn't survival. It's finding someone who sees all of you—and stays.",
     signature: "— S",
