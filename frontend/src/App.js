@@ -10,6 +10,7 @@ import Protocol005 from "@/pages/chapters/Protocol005";
 import Protocol006 from "@/pages/chapters/Protocol006";
 import Protocol007 from "@/pages/chapters/Protocol007";
 import ProtocolFinal from "@/pages/chapters/ProtocolFinal";
+import MidwayCheckpoint from "@/pages/MidwayCheckpoint";
 import FinalChoice from "@/pages/FinalChoice";
 import { GameProvider } from "@/context/GameContext";
 import "@/App.css";
@@ -27,6 +28,7 @@ function App() {
             <Route path="/protocol-002" element={<Protocol002 />} />
             <Route path="/protocol-003" element={<Protocol003 />} />
             <Route path="/protocol-004" element={<Protocol004 />} />
+            <Route path="/midway-checkpoint" element={<MidwayCheckpoint />} />
             <Route path="/protocol-005" element={<Protocol005 />} />
             <Route path="/protocol-006" element={<Protocol006 />} />
             <Route path="/protocol-007" element={<Protocol007 />} />
