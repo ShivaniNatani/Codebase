@@ -264,44 +264,11 @@ const Protocol001 = () => {
           )}
 
           {phase === 'complete' && (
-            <motion.div
-              key="complete"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-12 space-y-6"
-            >
-              <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 1, repeat: 2 }}
-                className="text-7xl"
-              >
-                ✅
-              </motion.div>
-
-              <div>
-                <h2 className="text-2xl font-bold font-mono text-foreground mb-2">
-                  PROTOCOL_001: COMPLETE
-                </h2>
-                <p className="text-muted-foreground">
-                  Origin decrypted. Proceed to next protocol.
-                </p>
-                {hasFoundEgg && (
-                  <p className="text-primary text-sm mt-2">
-                    <i className="fas fa-gem mr-2" />
-                    Secret fragment discovered!
-                  </p>
-                )}
-              </div>
-
-              <Button
-                onClick={() => navigate('/protocol-002')}
-                size="lg"
-                className="bg-primary hover:bg-primary/90"
-              >
-                PROTOCOL_002: ASCENSION
-                <i className="fas fa-arrow-right ml-2" />
-              </Button>
-            </motion.div>
+            <DayCompletionPage
+              dayIndex={0}
+              onContinue={() => navigate('/protocol-002')}
+              nextDayName="PROTOCOL_002: ASCENSION"
+            />
           )}
         </AnimatePresence>
 
