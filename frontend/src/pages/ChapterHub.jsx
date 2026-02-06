@@ -218,7 +218,7 @@ const ChapterHub = () => {
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="mt-8"
+                className="mt-8 flex flex-col sm:flex-row gap-4 justify-center"
               >
                 <Button
                   size="lg"
@@ -228,6 +228,15 @@ const ChapterHub = () => {
                   <i className="fas fa-key mr-2" />
                   DECRYPT FINAL MESSAGE
                   <i className="fas fa-arrow-right ml-3 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  onClick={() => navigate('/journey-stats')}
+                  data-testid="journey-stats-btn"
+                >
+                  <i className="fas fa-chart-line mr-2" />
+                  View Journey Stats
                 </Button>
               </motion.div>
             )}
