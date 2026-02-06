@@ -195,7 +195,7 @@ const LandingPage = () => {
               key="granted"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              className="text-center"
+              className="text-center relative z-10"
             >
               <motion.div
                 initial={{ scale: 0 }}
@@ -224,12 +224,12 @@ const LandingPage = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 }}
-                className="space-y-4"
+                className="space-y-4 relative z-20"
               >
                 <Button
                   size="lg"
                   onClick={() => navigate('/chapters')}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg group"
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg group relative z-30"
                   data-testid="initiate-protocol-btn"
                 >
                   <span>INITIATE PROTOCOL</span>
