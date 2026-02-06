@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Love notes collection - 24 secret messages
@@ -164,7 +165,5 @@ export const MiniSecret = ({ note, emoji = "💌" }) => {
     </motion.span>
   );
 };
-
-import { useState } from 'react';
 
 export default SecretHint;
