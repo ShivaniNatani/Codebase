@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { ChapterLayout, StorySection } from '@/components/ChapterLayout';
 import { GlitchText } from '@/components/GlitchText';
 import { DayCompletionPage } from '@/components/DayCompletion';
+import { SecretHint } from '@/components/SecretHint';
 import { useGame } from '@/context/GameContext';
 
 const Protocol006 = () => {

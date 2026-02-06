@@ -6,6 +6,7 @@ import { ChapterLayout, StorySection } from '@/components/ChapterLayout';
 import { TerminalBlock } from '@/components/TerminalText';
 import { GlitchText } from '@/components/GlitchText';
 import { DayCompletionPage } from '@/components/DayCompletion';
+import { SecretHint } from '@/components/SecretHint';
 import { useGame } from '@/context/GameContext';
 
 const Protocol003 = () => {
