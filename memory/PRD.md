@@ -54,10 +54,12 @@ Each protocol has a hidden `[HIDDEN_FRAGMENT_00X]` link that reveals a piece of 
 
 ## Testing Access
 All protocols unlocked in dev mode. URLs:
+- `/` - Landing Page (passcode: 14052024, or bypass in DEV MODE)
 - `/chapters` - Protocol Hub
 - `/protocol-001` through `/protocol-007`
 - `/midway-checkpoint` - Emotional pause after Day 4
-- `/protocol-final`
+- `/protocol-final` - The proposal
+- `/journey-stats` - **NEW** Journey analytics and personal message
 
 ## Before Giving to Argha
 Set `accessGranted: false` in `/app/frontend/src/context/GameContext.jsx`
