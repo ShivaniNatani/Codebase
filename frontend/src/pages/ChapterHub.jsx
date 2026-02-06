@@ -4,6 +4,16 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { GlitchText } from '@/components/GlitchText';
 import { useGame } from '@/context/GameContext';
+import { LoveQuote } from '@/components/RomanticElements';
+
+// Romantic quotes to display
+const romanticQuotes = [
+  "Every love story is beautiful, but ours is my favorite.",
+  "In a sea of people, my eyes will always search for you.",
+  "You're not just my love story. You're my forever.",
+  "The best thing to hold onto in life is each other.",
+  "I loved you yesterday. I love you still. Always have. Always will.",
+];
 
 // Valentine Week dates for time-lock
 const PROTOCOL_DATES = {
