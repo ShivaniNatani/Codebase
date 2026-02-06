@@ -21,6 +21,7 @@ function App() {
   return (
     <GameProvider>
       <div className="min-h-screen bg-background">
+        <FloatingHearts count={12} opacity={0.1} />
         <div className="noise-overlay" />
         <BrowserRouter>
           <Routes>
