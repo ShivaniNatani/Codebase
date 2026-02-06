@@ -5,7 +5,7 @@ const GameContext = createContext(null);
 const STORAGE_KEY = 'valentine_protocol_progress';
 
 const initialState = {
-  accessGranted: false, // Set to true for dev testing
+  accessGranted: true, // DEV MODE: Set to true for testing
   chaptersUnlocked: [true, true, true, true, true, true, true, true], // DEV MODE: All unlocked
   chaptersCompleted: [false, false, false, false, false, false, false, false],
   currentChapter: 0,
