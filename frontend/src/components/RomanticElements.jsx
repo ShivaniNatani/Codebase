@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { motion } from 'framer-motion';
 
 // Floating hearts background effect
@@ -89,8 +90,5 @@ export const HiddenLoveNote = ({ children, note, noteTitle = "💌 Secret Note" 
     </>
   );
 };
-
-// Import useState for HiddenLoveNote
-import { useState } from 'react';
 
 export default FloatingHearts;
