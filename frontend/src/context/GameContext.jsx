@@ -6,12 +6,13 @@ const STORAGE_KEY = 'valentine_protocol_progress';
 
 const initialState = {
   accessGranted: true, // DEV MODE: Set to true for testing
-  chaptersUnlocked: [true, true, true, true, true, true, true, true], // DEV MODE: All unlocked
+  chaptersUnlocked: [true, false, false, false, false, false, false, false], // Only first unlocked initially
   chaptersCompleted: [false, false, false, false, false, false, false, false],
   currentChapter: 0,
   puzzleAnswers: {},
   reflectionAnswers: {},
-  easterEggsFound: [], // Track found easter eggs
+  easterEggsFound: [],
+  midwayCheckpointSeen: false, // Track if midway checkpoint was seen
   finalChoiceMade: false,
   finalChoice: null,
   soundEnabled: true,
