@@ -346,15 +346,26 @@ const ProtocolFinal = () => {
                     <i className="fas fa-gem mr-2" />
                     {totalEggs}/8 Secret Fragments Discovered
                   </p>
-                  <Button
-                    onClick={() => navigate('/chapters')}
-                    variant="outline"
-                    size="lg"
-                    data-testid="revisit-story-btn"
-                  >
-                    <i className="fas fa-book mr-2" />
-                    Revisit Our Story
-                  </Button>
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                    <Button
+                      onClick={() => navigate('/journey-stats')}
+                      size="lg"
+                      className="bg-primary hover:bg-primary/90"
+                      data-testid="view-journey-stats-btn"
+                    >
+                      <i className="fas fa-chart-line mr-2" />
+                      View Journey Stats
+                    </Button>
+                    <Button
+                      onClick={() => navigate('/chapters')}
+                      variant="outline"
+                      size="lg"
+                      data-testid="revisit-story-btn"
+                    >
+                      <i className="fas fa-book mr-2" />
+                      Revisit Our Story
+                    </Button>
+                  </div>
                 </div>
               </motion.div>
             </motion.div>
