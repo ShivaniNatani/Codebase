@@ -224,6 +224,18 @@ const ChapterHub = () => {
               </span>
             </p>
 
+            {/* Romantic Quote */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="mt-6 py-3 px-4 rounded-lg bg-primary/5 border border-primary/20"
+            >
+              <p className="text-sm text-foreground/70 font-serif italic">
+                💕 "{romanticQuotes[Math.floor(Date.now() / 86400000) % romanticQuotes.length]}"
+              </p>
+            </motion.div>
+
             {allCompleted && (
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
