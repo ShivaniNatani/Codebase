@@ -124,7 +124,7 @@ const Protocol007 = () => {
               {/* Scotch Photo */}
               <div className="bg-card border border-border rounded-lg p-6 text-center">
                 <img 
-                  src="https://customer-assets.emergentagent.com/job_dark-valentine/artifacts/p20n7hmx_IMG_8293.jpeg"
+                  src="https://customer-assets.emergentagent.com/job_dark-valentine/artifacts/bs6hswev_IMG_8684.jpeg"
                   alt="Scotch"
                   className="w-48 h-48 object-cover rounded-lg mx-auto mb-4"
                 />
