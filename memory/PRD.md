@@ -1,142 +1,62 @@
-# VALENTINE WEEK - FOR ARGHA ❤️
+# PROTOCOL_V - Valentine Week Experience for Argha
 
-## Product Overview
-A deeply personal 8-day Valentine Week proposal experience (Feb 7-14, 2025) designed for Argha from Shivani. The journey tells his life story and culminates in making him realize that after all his struggles and achievements, SHE is his greatest reward.
+## Overview
+A mysterious, puzzle-driven 8-day Valentine proposal experience designed for Argha—an intelligent Alpha who loves logic puzzles and strategy. Each "Protocol" is a chapter that hides secrets and requires solving puzzles to unlock.
 
-**Target:** Argha - An intelligent, emotionally reserved man who enjoys logic puzzles and strategy
-**From:** Shivani - Emotional, caring partner from Indore (DOB: 14 May 1998)
-**Purpose:** A Valentine's proposal journey that makes him reflect on his life and realize what he has found in her
+## Key Changes (Latest Update)
+- **Mysterious names**: No more "Rose Day, Teddy Day" → Now cryptic "PROTOCOL_001: ORIGIN", "PROTOCOL_004: GLITCH" etc.
+- **Complex puzzles**: Caesar ciphers, pattern recognition, riddles, matching games
+- **Hidden Easter Eggs**: 8 secret fragments containing Shivani's poetry about how she sees him
+- **New passcode**: 14052024 (the date he proposed!)
+- **Photos integrated**: Scotch and their couple photo included
+- **Time-lock ready**: Can be enabled to unlock one protocol per day (Feb 7-14)
 
-## Valentine Week Structure (8 Days)
+## Protocol Structure
 
-| Day | Date | Route | Theme |
-|-----|------|-------|-------|
-| 🌹 Rose Day | Feb 7 | /rose-day | Origin - Dhanbad roots, childhood |
-| 💍 Propose Day | Feb 8 | /propose-day | The Alpha rises, career achievements |
-| 🍫 Chocolate Day | Feb 9 | /chocolate-day | Bitter & Sweet - betrayal story |
-| 🧸 Teddy Day | Feb 10 | /teddy-day | The Wrong Shivani - how they met |
-| 🤝 Promise Day | Feb 11 | /promise-day | Opposites Attract - veg/non-veg, emotional/logical |
-| 🤗 Hug Day | Feb 12 | /hug-day | How she changed everything - key moments |
-| 💋 Kiss Day | Feb 13 | /kiss-day | The Revelation - she is his greatest achievement |
-| ❤️ Valentine's Day | Feb 14 | /valentine-day | THE PROPOSAL |
+| Protocol | Codename | Theme | Puzzle Type |
+|----------|----------|-------|-------------|
+| 001 | ORIGIN | Dhanbad roots | Caesar cipher (GKDQEKDG → DHANBAD) |
+| 002 | ASCENSION | Alpha rise, Amazon | Pattern sequence (2,6,18,54) |
+| 003 | FRACTURE | Betrayal | Word completion, memory test |
+| 004 | GLITCH | Wrong Shivani | City identification, birthday quiz |
+| 005 | PARADOX | Opposites attract | Matching game (traits) |
+| 006 | ANCHOR | Diwali, support | Festival name, friends' names |
+| 007 | REVELATION | She is the reward | Progressive reveal sequence |
+| FINAL | CHOICE | The proposal | Letter + final question |
+
+## Hidden Easter Eggs (Poetry Fragments)
+Each protocol has a hidden `[HIDDEN_FRAGMENT_00X]` link that reveals a piece of her heart:
+
+1. **Fragment 1**: "The warmth of sunshine couldn't do what his presence did..."
+2. **Fragment 2**: "I want him to be my best friend... a love that's real, raw, ridiculous"
+3. **Fragment 3**: "I want love that chooses me, even on days I'm hard to love"
+4. **Fragment 4**: "Even vodka couldn't do what his black shirt did..."
+5. **Fragment 5**: "Strong couples create things to look forward to. Date nights. Slow mornings..."
+6. **Fragment 6**: "I want to be his happy wife, soft, radiant, & deeply loved"
+7. **Fragment 7**: "I want to be your motivation... my most treasured title: Your Wife"
+8. **Fragment Final**: "Close your eyes and think of me... Our love forever as destiny"
 
 ## Personal Details Used
+- **Argha**: Dhanbad, 04-10-1994, Amazon, Alpha, non-veg
+- **Shivani**: Indore, 14-05-1998, emotional, veg
+- **Proposal date**: 14-05-2024 (passcode!)
+- **Friends**: Amit & Abhilasha (chosen family)
+- **Pet**: Scotch 🐕
 
-### Argha
-- Origin: Dhanbad, Jharkhand
-- DOB: 04-10-1994
-- Personality: Alpha, logical, emotionally reserved
-- Food: Hardcore non-veg
-- Career: Amazon (via spontaneous interview), UpGrad alumni mentor
-- Family friends: Amit & Abhilasha
+## Testing Access
+All protocols unlocked in dev mode. URLs:
+- `/chapters` - Protocol Hub
+- `/protocol-001` through `/protocol-007`
+- `/protocol-final`
 
-### Shivani
-- Origin: Indore
-- DOB: 14 May 1998
-- Personality: Emotional, expressive, caring
-- Food: Pure vegetarian
+## Before Giving to Argha
+Set `accessGranted: false` in `/app/frontend/src/context/GameContext.jsx`
 
-### Key Moments Featured
-1. **Wrong number meeting** - He called thinking she was "other Shivani" from Mumbai
-2. **Birthday support** - He made sure she wasn't alone when her ex was with someone else
-3. **Diwali with Amit & Abhilasha** - He didn't go home, celebrated with her instead
-4. **Movie requests** - He always drove to watch what she wanted
-5. **Emotional support** - Always present when she was upset
-6. **Promise** - "Whatever happens, I'll always be there"
-
-## Technical Stack
-- **Frontend:** React 19 + TailwindCSS + Framer Motion
-- **UI Components:** Shadcn/UI
-- **State Management:** React Context + localStorage
-- **Routing:** React Router DOM
-- **No Backend** - Pure frontend experience
-
-## Features Implemented
-
-### Landing Page ✅
-- "VALENTINE_WEEK" title with glitch effect
-- "FOR ARGHA • 8 CHAPTERS • 1 LOVE STORY"
-- Terminal boot sequence animation
-- Access code validation (DOB: 04101994)
-- Sound toggle
-
-### Chapter Hub ✅
-- 8 Valentine Week day cards with emojis
-- Progress tracker (0/8 to 8/8)
-- Personal message from Shivani
-- "For Argha" personalized header
-
-### Each Chapter ✅
-- Story → Game → Reflection → Complete flow
-- Journey Progress tracker (8 milestones)
-- Personal narrative content
-- Interactive mini-game
-- Reflection questionnaire
-- Navigation between chapters
-
-### Mini-Games ✅
-1. **MemoryMatchGame** - Match childhood memories
-2. **CodeChallengeGame** - Find bugs in code
-3. **ShieldDefenseGame** - Protect heart from attacks
-4. **ConnectHeartsGame** - Draw line between hearts
-5. **RoadTripGame** - Navigate journey together
-6. **BuildHomeGame** - Click to build future home
-7. **CatchRingGame** - Catch falling rings
-
-### Valentine's Day Proposal ✅
-- Journey recap
-- Shivani's love letter
-- "Will you be mine forever?" question
-- "Yes, Forever" / "I need more time" choices
-- Celebration response on "Yes"
-
-## Dev Mode
-For testing, all chapters are unlocked:
-```javascript
-accessGranted: true,
-chaptersUnlocked: [true, true, true, true, true, true, true, true]
-```
-
-## File Structure
-```
-/app/frontend/src/
-├── App.js                   # Routes for all 8 days
-├── context/
-│   └── GameContext.jsx      # State + localStorage
-├── components/
-│   ├── ChapterLayout.jsx
-│   ├── GlitchText.jsx
-│   ├── InteractiveGames.jsx
-│   ├── ReflectionSystem.jsx
-│   └── TerminalText.jsx
-└── pages/
-    ├── ChapterHub.jsx       # Valentine Week grid
-    ├── LandingPage.jsx
-    └── chapters/
-        ├── RoseDay.jsx
-        ├── ProposeDay.jsx
-        ├── ChocolateDay.jsx
-        ├── TeddyDay.jsx
-        ├── PromiseDay.jsx
-        ├── HugDay.jsx
-        ├── KissDay.jsx
-        └── ValentineDay.jsx
-```
-
-## Testing Status
-- ✅ Testing Agent: 95% pass rate
-- ✅ All 8 chapters functional
-- ✅ All games working
-- ✅ Proposal flow complete
-- ✅ Navigation working
-- ✅ Personal details correct
-
-## Future/Backlog
-1. **P2** - Add actual photos to placeholders
-2. **P2** - Implement ambient sounds
-3. **P3** - Mobile responsive polish
-4. **P3** - Add animations between phases
+## Tech Stack
+- React 19 + TailwindCSS + Framer Motion
+- State: React Context + localStorage
+- No backend needed
 
 ---
-*Last Updated: Feb 4, 2026*
-*Status: MVP Complete - Valentine Week Ready for Argha ❤️*
+*Last Updated: Feb 6, 2026*
+*Status: Complete - Ready for Argha ❤️*
