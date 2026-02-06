@@ -3,13 +3,22 @@
 ## Overview
 A mysterious, puzzle-driven 8-day Valentine proposal experience designed for Argha—an intelligent Alpha who loves logic puzzles and strategy. Each "Protocol" is a chapter that hides secrets and requires solving puzzles to unlock.
 
-## Key Changes (Latest Update)
+## Key Changes (Latest Update - Emotional Journey Enhancements)
 - **Mysterious names**: No more "Rose Day, Teddy Day" → Now cryptic "PROTOCOL_001: ORIGIN", "PROTOCOL_004: GLITCH" etc.
 - **Complex puzzles**: Caesar ciphers, pattern recognition, riddles, matching games
 - **Hidden Easter Eggs**: 8 secret fragments containing Shivani's poetry about how she sees him
 - **New passcode**: 14052024 (the date he proposed!)
-- **Photos integrated**: Scotch and their couple photo included
+- **Photos integrated**: Scotch (dog) in Protocol007, couple photo in Final response
 - **Time-lock ready**: Can be enabled to unlock one protocol per day (Feb 7-14)
+- **NEW: DayCompletionPage** - Dedicated emotional completion screens after each chapter
+- **NEW: Midway Checkpoint** - Emotional pause at /midway-checkpoint after Day 4 before starting "US" chapters
+- **NEW: Single "Yes, Forever" button** - ProtocolFinal now has only one affirmative option
+
+## Emotional Journey Flow
+1. **Protocols 001-004**: Argha's personal journey (origin, growth, betrayal, the "glitch")
+2. **Midway Checkpoint**: An intentional pause - "The next chapters are about US"
+3. **Protocols 005-007**: Their relationship story (paradox, anchor, revelation)
+4. **Protocol Final**: The proposal with single "Yes, Forever" button
 
 ## Protocol Structure
 
@@ -47,6 +56,7 @@ Each protocol has a hidden `[HIDDEN_FRAGMENT_00X]` link that reveals a piece of 
 All protocols unlocked in dev mode. URLs:
 - `/chapters` - Protocol Hub
 - `/protocol-001` through `/protocol-007`
+- `/midway-checkpoint` - Emotional pause after Day 4
 - `/protocol-final`
 
 ## Before Giving to Argha
@@ -58,5 +68,5 @@ Set `accessGranted: false` in `/app/frontend/src/context/GameContext.jsx`
 - No backend needed
 
 ---
-*Last Updated: Feb 6, 2026*
-*Status: Complete - Ready for Argha ❤️*
+*Last Updated: Dec 2025*
+*Status: Complete - Emotional Journey Ready ❤️*
