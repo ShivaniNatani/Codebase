@@ -118,22 +118,60 @@ export const DayCompletionPage = ({ dayIndex, onContinue, nextDayName }) => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="min-h-[80vh] flex flex-col items-center justify-center py-12 px-4"
+      className="min-h-[80vh] flex flex-col items-center justify-center py-12 px-4 relative"
     >
-      {/* Day Reveal (Rose Day, Teddy Day etc.) */}
+      {/* Dreamy background effect */}
+      <div className="absolute inset-0 bg-gradient-to-b from-primary/5 via-transparent to-pink-500/5 pointer-events-none" />
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(8)].map((_, i) => (
+          <motion.div
+            key={i}
+            className="absolute text-2xl opacity-20"
+            initial={{ 
+              x: Math.random() * 100 + '%',
+              y: '100%',
+            }}
+            animate={{ 
+              y: '-10%',
+              rotate: [0, 360],
+            }}
+            transition={{ 
+              duration: 8 + Math.random() * 4,
+              repeat: Infinity,
+              delay: Math.random() * 3,
+            }}
+          >
+            {data.visual || '💕'}
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Day Reveal (Rose Day, Propose Day etc.) */}
       <AnimatePresence>
         {data.reveal && showReveal && (
           <motion.div
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             transition={{ type: 'spring', duration: 0.8 }}
-            className="text-center mb-8"
+            className="text-center mb-8 relative z-10"
           >
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-primary/10 border border-primary/30 mb-4">
-              <span className="text-2xl">{data.reveal.split(' ')[0]}</span>
-              <span className="text-lg font-bold text-primary">{data.reveal}</span>
-            </div>
-            <p className="text-foreground/70 font-serif italic">{data.revealMessage}</p>
+            <motion.div 
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-primary/20 to-pink-500/20 border border-primary/40 mb-4 shadow-lg"
+              animate={{ 
+                boxShadow: ['0 0 20px rgba(236, 72, 153, 0.2)', '0 0 40px rgba(236, 72, 153, 0.4)', '0 0 20px rgba(236, 72, 153, 0.2)']
+              }}
+              transition={{ duration: 2, repeat: Infinity }}
+            >
+              <motion.span 
+                className="text-3xl"
+                animate={{ scale: [1, 1.2, 1] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              >
+                {data.reveal.split(' ')[0]}
+              </motion.span>
+              <span className="text-xl font-bold text-primary">{data.reveal}</span>
+            </motion.div>
+            <p className="text-foreground/70 font-serif italic text-lg">{data.revealMessage}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -143,14 +181,15 @@ export const DayCompletionPage = ({ dayIndex, onContinue, nextDayName }) => {
         initial={{ scale: 0.8 }}
         animate={{ scale: 1 }}
         transition={{ delay: data.reveal ? 1.5 : 0.3 }}
-        className="text-center mb-8"
+        className="text-center mb-8 relative z-10"
       >
         <motion.div
           animate={{ 
-            scale: [1, 1.1, 1],
+            scale: [1, 1.15, 1],
+            rotate: [0, 5, -5, 0],
           }}
-          transition={{ duration: 2, repeat: 2 }}
-          className="text-7xl mb-6"
+          transition={{ duration: 3, repeat: Infinity }}
+          className="text-8xl mb-6"
         >
           {data.emoji}
         </motion.div>
@@ -171,9 +210,10 @@ export const DayCompletionPage = ({ dayIndex, onContinue, nextDayName }) => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className={`bg-card/50 border rounded-xl p-8 max-w-lg mx-auto mb-8 ${data.special ? 'border-primary/50 bg-primary/5' : 'border-border'}`}
+            className={`bg-gradient-to-br from-card/80 to-card/50 backdrop-blur-sm border rounded-xl p-8 max-w-lg mx-auto mb-8 relative z-10 ${data.special ? 'border-primary/50 bg-primary/5' : 'border-pink-500/30'}`}
           >
-            <div className="text-center">
+            <div className="absolute -top-3 left-1/2 -translate-x-1/2 text-2xl">💌</div>
+            <div className="text-center pt-2">
               <p className="text-foreground/90 font-serif italic text-lg leading-relaxed mb-4">
                 "{data.note}"
               </p>
@@ -190,14 +230,15 @@ export const DayCompletionPage = ({ dayIndex, onContinue, nextDayName }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.5 }}
+            className="relative z-10"
           >
             <Button
               onClick={onContinue}
               size="lg"
-              className="bg-primary hover:bg-primary/90"
+              className="bg-gradient-to-r from-primary to-pink-500 hover:from-primary/90 hover:to-pink-500/90 shadow-lg"
             >
               {nextDayName ? `Continue to ${nextDayName}` : 'Continue'}
-              <i className="fas fa-arrow-right ml-2" />
+              <i className="fas fa-heart ml-2" />
             </Button>
           </motion.div>
         )}
