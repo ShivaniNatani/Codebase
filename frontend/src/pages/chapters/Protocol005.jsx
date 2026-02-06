@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ChapterLayout, StorySection } from '@/components/ChapterLayout';
 import { GlitchText } from '@/components/GlitchText';
+import { DayCompletionPage } from '@/components/DayCompletion';
 import { useGame } from '@/context/GameContext';
 
 const Protocol005 = () => {
@@ -226,44 +227,11 @@ const Protocol005 = () => {
           )}
 
           {phase === 'complete' && (
-            <motion.div
-              key="complete"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-12 space-y-6"
-            >
-              <motion.div
-                animate={{ scale: [1, 1.1, 1] }}
-                transition={{ duration: 1, repeat: 2 }}
-                className="text-7xl"
-              >
-                ☯️
-              </motion.div>
-
-              <div>
-                <h2 className="text-2xl font-bold font-mono text-foreground mb-2">
-                  PROTOCOL_005: COMPLETE
-                </h2>
-                <p className="text-muted-foreground">
-                  Paradox accepted. Balance achieved.
-                </p>
-                {hasFoundEgg && (
-                  <p className="text-primary text-sm mt-2">
-                    <i className="fas fa-gem mr-2" />
-                    Secret fragment discovered!
-                  </p>
-                )}
-              </div>
-
-              <Button
-                onClick={() => navigate('/protocol-006')}
-                size="lg"
-                className="bg-primary hover:bg-primary/90"
-              >
-                PROTOCOL_006: ANCHOR
-                <i className="fas fa-arrow-right ml-2" />
-              </Button>
-            </motion.div>
+            <DayCompletionPage
+              dayIndex={4}
+              onContinue={() => navigate('/protocol-006')}
+              nextDayName="PROTOCOL_006: ANCHOR"
+            />
           )}
         </AnimatePresence>
 

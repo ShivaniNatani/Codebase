@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ChapterLayout, StorySection } from '@/components/ChapterLayout';
 import { GlitchText } from '@/components/GlitchText';
+import { DayCompletionPage } from '@/components/DayCompletion';
 import { useGame } from '@/context/GameContext';
 
 const Protocol007 = () => {
@@ -175,53 +176,11 @@ const Protocol007 = () => {
           )}
 
           {phase === 'complete' && (
-            <motion.div
-              key="complete"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              className="text-center py-12 space-y-6"
-            >
-              <motion.div
-                animate={{ 
-                  scale: [1, 1.2, 1],
-                  rotate: [0, 5, -5, 0]
-                }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="text-7xl"
-              >
-                💖
-              </motion.div>
-
-              <div>
-                <h2 className="text-2xl font-bold font-mono text-foreground mb-2">
-                  PROTOCOL_007: COMPLETE
-                </h2>
-                <p className="text-muted-foreground">
-                  The revelation is complete. One protocol remains.
-                </p>
-                {hasFoundEgg && (
-                  <p className="text-primary text-sm mt-2">
-                    <i className="fas fa-gem mr-2" />
-                    Secret fragment discovered!
-                  </p>
-                )}
-              </div>
-
-              <div className="pt-4">
-                <p className="text-foreground mb-4 font-serif italic">
-                  "Tomorrow is Valentine's Day. Tomorrow, everything changes."
-                </p>
-                <Button
-                  onClick={() => navigate('/protocol-final')}
-                  size="lg"
-                  className="bg-primary hover:bg-primary/90 animate-pulse"
-                >
-                  <i className="fas fa-heart mr-2" />
-                  PROTOCOL_FINAL: CHOICE
-                  <i className="fas fa-arrow-right ml-2" />
-                </Button>
-              </div>
-            </motion.div>
+            <DayCompletionPage
+              dayIndex={6}
+              onContinue={() => navigate('/protocol-final')}
+              nextDayName="PROTOCOL_FINAL: CHOICE"
+            />
           )}
         </AnimatePresence>
 
