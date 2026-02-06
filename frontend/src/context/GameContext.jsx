@@ -142,6 +142,7 @@ export const GameProvider = ({ children }) => {
     grantAccess,
     unlockChapter,
     completeChapter,
+    markMidwayCheckpointSeen,
     savePuzzleAnswer,
     saveReflectionAnswer,
     findEasterEgg,
