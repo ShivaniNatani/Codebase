@@ -11,7 +11,7 @@ import { useGame } from '@/context/GameContext';
 const Protocol005 = () => {
   const navigate = useNavigate();
   const { chaptersCompleted, completeChapter, findEasterEgg, easterEggsFound } = useGame();
-  const [phase, setPhase] = useState(chaptersCompleted[4] ? 'complete' : 'story');
+  const [phase, setPhase] = useState('story'); // Always start at story so users can revisit
   const [showError, setShowError] = useState(false);
   const [showEasterEgg, setShowEasterEgg] = useState(false);
   const [matchedPairs, setMatchedPairs] = useState([]);
@@ -26,13 +26,13 @@ const Protocol005 = () => {
 
   const handleMatch = (side, id) => {
     if (matchedPairs.includes(id)) return;
-    
+
     if (!selectedItem) {
       setSelectedItem({ side, id });
     } else if (selectedItem.id === id && selectedItem.side !== side) {
       setMatchedPairs([...matchedPairs, id]);
       setSelectedItem(null);
-      
+
       if (matchedPairs.length === 3) {
         setTimeout(() => setPhase('reflection'), 1500);
       }
@@ -92,10 +92,10 @@ const Protocol005 = () => {
 
               <StorySection>
                 <p className="text-foreground/90 text-lg leading-relaxed font-mono text-center">
-                  On paper, you two make no sense.<br/>
-                  He's logical, she's emotional.<br/>
-                  He eats everything, she won't touch non-veg.<br/>
-                  He's reserved, she expresses everything.<br/>
+                  On paper, you two make no sense.<br />
+                  He's logical, she's emotional.<br />
+                  He eats everything, she won't touch non-veg.<br />
+                  He's reserved, she expresses everything.<br />
                   <span className="text-primary font-bold block mt-4">And yet... it's perfect.</span>
                 </p>
               </StorySection>
@@ -119,13 +119,12 @@ const Protocol005 = () => {
                         key={`left-${pair.id}`}
                         onClick={() => handleMatch('left', pair.id)}
                         disabled={matchedPairs.includes(pair.id)}
-                        className={`w-full p-3 rounded-lg text-sm font-mono transition-all ${
-                          matchedPairs.includes(pair.id)
+                        className={`w-full p-3 rounded-lg text-sm font-mono transition-all ${matchedPairs.includes(pair.id)
                             ? 'bg-green-500/20 border-green-500 text-green-400'
                             : selectedItem?.id === pair.id && selectedItem?.side === 'left'
-                            ? 'bg-primary/20 border-primary'
-                            : 'bg-background border-border hover:border-blue-400'
-                        } border`}
+                              ? 'bg-primary/20 border-primary'
+                              : 'bg-background border-border hover:border-blue-400'
+                          } border`}
                       >
                         {pair.left}
                       </button>
@@ -148,13 +147,12 @@ const Protocol005 = () => {
                         key={`right-${pair.id}`}
                         onClick={() => handleMatch('right', pair.id)}
                         disabled={matchedPairs.includes(pair.id)}
-                        className={`w-full p-3 rounded-lg text-sm font-mono transition-all ${
-                          matchedPairs.includes(pair.id)
+                        className={`w-full p-3 rounded-lg text-sm font-mono transition-all ${matchedPairs.includes(pair.id)
                             ? 'bg-green-500/20 border-green-500 text-green-400'
                             : selectedItem?.id === pair.id && selectedItem?.side === 'right'
-                            ? 'bg-primary/20 border-primary'
-                            : 'bg-background border-border hover:border-pink-400'
-                        } border`}
+                              ? 'bg-primary/20 border-primary'
+                              : 'bg-background border-border hover:border-pink-400'
+                          } border`}
                       >
                         {pair.right}
                       </button>
@@ -178,10 +176,10 @@ const Protocol005 = () => {
               </div>
 
               {/* Hidden Easter Egg */}
-              <SecretHint 
-                onClick={handleEasterEggFind} 
-                found={hasFoundEgg} 
-                fragmentNumber={5} 
+              <SecretHint
+                onClick={handleEasterEggFind}
+                found={hasFoundEgg}
+                fragmentNumber={5}
               />
             </motion.div>
           )}
@@ -256,9 +254,9 @@ const Protocol005 = () => {
                   <h3 className="text-lg font-bold text-primary mb-4">SECRET FRAGMENT #5</h3>
                   <div className="bg-background/50 rounded-lg p-4 mb-4">
                     <p className="text-foreground/80 font-serif italic text-sm leading-relaxed">
-                      "Strong couples create things to look forward to.<br/>
-                      Date nights. Slow mornings. Sunday walks.<br/>
-                      When you build small rituals,<br/>
+                      "Strong couples create things to look forward to.<br />
+                      Date nights. Slow mornings. Sunday walks.<br />
+                      When you build small rituals,<br />
                       you build safety. You build love that lasts."
                     </p>
                   </div>

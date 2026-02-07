@@ -11,7 +11,7 @@ import { useGame } from '@/context/GameContext';
 const Protocol007 = () => {
   const navigate = useNavigate();
   const { chaptersCompleted, completeChapter, findEasterEgg, easterEggsFound } = useGame();
-  const [phase, setPhase] = useState(chaptersCompleted[6] ? 'complete' : 'story');
+  const [phase, setPhase] = useState('story'); // Always start at story so users can revisit
   const [showEasterEgg, setShowEasterEgg] = useState(false);
   const [revealStep, setRevealStep] = useState(0);
 
@@ -74,7 +74,7 @@ const Protocol007 = () => {
 
               <StorySection>
                 <p className="text-foreground/90 text-lg leading-relaxed font-mono text-center">
-                  You've seen your journey through her eyes.<br/>
+                  You've seen your journey through her eyes.<br />
                   Now see what she truly found at the end of it.
                 </p>
               </StorySection>
@@ -124,7 +124,7 @@ const Protocol007 = () => {
 
               {/* Scotch Photo */}
               <div className="bg-card border border-border rounded-lg p-6 text-center">
-                <img 
+                <img
                   src="https://customer-assets.emergentagent.com/job_dark-valentine/artifacts/bs6hswev_IMG_8684.jpeg"
                   alt="Scotch"
                   className="w-48 h-48 object-cover rounded-lg mx-auto mb-4"
@@ -135,10 +135,10 @@ const Protocol007 = () => {
               </div>
 
               {/* Hidden Easter Egg */}
-              <SecretHint 
-                onClick={handleEasterEggFind} 
-                found={hasFoundEgg} 
-                fragmentNumber={7} 
+              <SecretHint
+                onClick={handleEasterEggFind}
+                found={hasFoundEgg}
+                fragmentNumber={7}
               />
             </motion.div>
           )}
@@ -205,11 +205,11 @@ const Protocol007 = () => {
                   <h3 className="text-lg font-bold text-primary mb-4">SECRET FRAGMENT #7</h3>
                   <div className="bg-background/50 rounded-lg p-4 mb-4">
                     <p className="text-foreground/80 font-serif italic text-sm leading-relaxed">
-                      "I want to be your motivation, inspiration,<br/>
-                      and everything in between.<br/>
-                      I want to be the reason for your smile,<br/>
-                      the one who turns your frown upside down.<br/>
-                      Because my most treasured title would be:<br/>
+                      "I want to be your motivation, inspiration,<br />
+                      and everything in between.<br />
+                      I want to be the reason for your smile,<br />
+                      the one who turns your frown upside down.<br />
+                      Because my most treasured title would be:<br />
                       <span className="text-primary font-bold">Your Wife.</span>"
                     </p>
                   </div>

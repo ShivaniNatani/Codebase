@@ -12,7 +12,7 @@ import { useGame } from '@/context/GameContext';
 const Protocol003 = () => {
   const navigate = useNavigate();
   const { chaptersCompleted, completeChapter, findEasterEgg, easterEggsFound } = useGame();
-  const [phase, setPhase] = useState(chaptersCompleted[2] ? 'complete' : 'story');
+  const [phase, setPhase] = useState('story'); // Always start at story so users can revisit
   const [showError, setShowError] = useState(false);
   const [showEasterEgg, setShowEasterEgg] = useState(false);
   const [wordAnswer, setWordAnswer] = useState('');
@@ -31,14 +31,14 @@ const Protocol003 = () => {
   };
 
   const correctEmotions = ['wall', 'guard', 'alpha'];
-  
+
   const handleEmotionSelect = (emotion) => {
     if (selectedEmotions.includes(emotion)) {
       setSelectedEmotions(selectedEmotions.filter(e => e !== emotion));
     } else {
       const newSelected = [...selectedEmotions, emotion];
       setSelectedEmotions(newSelected);
-      
+
       // Check if 3 correct emotions selected
       const correctCount = newSelected.filter(e => correctEmotions.includes(e)).length;
       if (correctCount >= 3) {
@@ -179,10 +179,10 @@ const Protocol003 = () => {
               </div>
 
               {/* Hidden Easter Egg */}
-              <SecretHint 
-                onClick={handleEasterEggFind} 
-                found={hasFoundEgg} 
-                fragmentNumber={3} 
+              <SecretHint
+                onClick={handleEasterEggFind}
+                found={hasFoundEgg}
+                fragmentNumber={3}
               />
             </motion.div>
           )}
@@ -208,13 +208,12 @@ const Protocol003 = () => {
                     onClick={() => handleEmotionSelect(option.id)}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className={`p-4 rounded-lg border text-center transition-all ${
-                      selectedEmotions.includes(option.id)
-                        ? option.correct 
+                    className={`p-4 rounded-lg border text-center transition-all ${selectedEmotions.includes(option.id)
+                        ? option.correct
                           ? 'bg-green-500/20 border-green-500'
                           : 'bg-red-500/20 border-red-500'
                         : 'bg-card border-border hover:border-primary'
-                    }`}
+                      }`}
                   >
                     <div className="text-3xl mb-2">{option.emoji}</div>
                     <p className="text-sm text-foreground">{option.label}</p>
@@ -299,9 +298,9 @@ const Protocol003 = () => {
                   <h3 className="text-lg font-bold text-primary mb-4">SECRET FRAGMENT #3</h3>
                   <div className="bg-background/50 rounded-lg p-4 mb-4">
                     <p className="text-foreground/80 font-serif italic text-sm leading-relaxed">
-                      "I want love that chooses me,<br/>
-                      Even on days I'm hard to love.<br/>
-                      Love that listens before it judges,<br/>
+                      "I want love that chooses me,<br />
+                      Even on days I'm hard to love.<br />
+                      Love that listens before it judges,<br />
                       That holds me when I'm breaking."
                     </p>
                   </div>

@@ -24,7 +24,7 @@ const decodeCipher = (text, shift = 3) => {
 const Protocol001 = () => {
   const navigate = useNavigate();
   const { chaptersCompleted, completeChapter, findEasterEgg, easterEggsFound } = useGame();
-  const [phase, setPhase] = useState(chaptersCompleted[0] ? 'complete' : 'story');
+  const [phase, setPhase] = useState('story'); // Always start at story so users can revisit
   const [puzzleSolved, setPuzzleSolved] = useState(false);
   const [cipherInput, setCipherInput] = useState('');
   const [cipherError, setCipherError] = useState(false);
@@ -167,10 +167,10 @@ const Protocol001 = () => {
               </div>
 
               {/* Hidden Easter Egg */}
-              <SecretHint 
-                onClick={handleEasterEggFind} 
-                found={hasFoundEgg} 
-                fragmentNumber={1} 
+              <SecretHint
+                onClick={handleEasterEggFind}
+                found={hasFoundEgg}
+                fragmentNumber={1}
               />
             </motion.div>
           )}
@@ -191,10 +191,10 @@ const Protocol001 = () => {
 
               <div className="bg-card border border-purple-500/30 rounded-lg p-8 max-w-xl mx-auto">
                 <p className="text-foreground text-lg leading-relaxed text-center font-serif italic mb-8">
-                  "An Income Tax Officer by day,<br/>
-                  But to his son, so much more to say.<br/>
-                  He brought home the machine of dreams,<br/>
-                  Believing in futures yet unseen.<br/>
+                  "An Income Tax Officer by day,<br />
+                  But to his son, so much more to say.<br />
+                  He brought home the machine of dreams,<br />
+                  Believing in futures yet unseen.<br />
                   <span className="text-primary font-bold">Who planted the seed of the alpha's rise?"</span>
                 </p>
 
@@ -293,8 +293,8 @@ const Protocol001 = () => {
                   <h3 className="text-lg font-bold text-primary mb-4">SECRET FRAGMENT #1</h3>
                   <div className="bg-background/50 rounded-lg p-4 mb-4">
                     <p className="text-foreground/80 font-serif italic text-sm leading-relaxed">
-                      "The warmth of sunshine couldn't do<br/>
-                      What his presence did.<br/>
+                      "The warmth of sunshine couldn't do<br />
+                      What his presence did.<br />
                       He did what no one else could."
                     </p>
                   </div>

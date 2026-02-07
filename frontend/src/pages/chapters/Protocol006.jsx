@@ -11,7 +11,7 @@ import { useGame } from '@/context/GameContext';
 const Protocol006 = () => {
   const navigate = useNavigate();
   const { chaptersCompleted, completeChapter, findEasterEgg, easterEggsFound } = useGame();
-  const [phase, setPhase] = useState(chaptersCompleted[5] ? 'complete' : 'story');
+  const [phase, setPhase] = useState('story'); // Always start at story so users can revisit
   const [showEasterEgg, setShowEasterEgg] = useState(false);
   const [memoryAnswer, setMemoryAnswer] = useState('');
   const [showError, setShowError] = useState(false);
@@ -97,8 +97,8 @@ const Protocol006 = () => {
 
               <StorySection>
                 <p className="text-foreground/90 text-lg leading-relaxed font-mono text-center">
-                  You think you're not romantic.<br/>
-                  You're wrong.<br/>
+                  You think you're not romantic.<br />
+                  You're wrong.<br />
                   <span className="text-primary font-bold">Let her show you what she sees.</span>
                 </p>
               </StorySection>
@@ -153,10 +153,10 @@ const Protocol006 = () => {
               </div>
 
               {/* Hidden Easter Egg */}
-              <SecretHint 
-                onClick={handleEasterEggFind} 
-                found={hasFoundEgg} 
-                fragmentNumber={6} 
+              <SecretHint
+                onClick={handleEasterEggFind}
+                found={hasFoundEgg}
+                fragmentNumber={6}
               />
             </motion.div>
           )}
@@ -182,11 +182,10 @@ const Protocol006 = () => {
                     onClick={() => handleMomentSelect(moment.id)}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className={`p-4 rounded-lg border text-left transition-all ${
-                      selectedMoments.includes(moment.id)
+                    className={`p-4 rounded-lg border text-left transition-all ${selectedMoments.includes(moment.id)
                         ? 'bg-primary/20 border-primary'
                         : 'bg-card border-border hover:border-pink-400'
-                    }`}
+                      }`}
                   >
                     <div className="flex items-center gap-3">
                       <span className="text-3xl">{moment.emoji}</span>
@@ -279,10 +278,10 @@ const Protocol006 = () => {
                   <h3 className="text-lg font-bold text-primary mb-4">SECRET FRAGMENT #6</h3>
                   <div className="bg-background/50 rounded-lg p-4 mb-4">
                     <p className="text-foreground/80 font-serif italic text-sm leading-relaxed">
-                      "I want to be his happy wife,<br/>
-                      soft, radiant, & deeply loved.<br/>
-                      A woman who glows with joy,<br/>
-                      who submits not out of weakness,<br/>
+                      "I want to be his happy wife,<br />
+                      soft, radiant, & deeply loved.<br />
+                      A woman who glows with joy,<br />
+                      who submits not out of weakness,<br />
                       but out of trust."
                     </p>
                   </div>

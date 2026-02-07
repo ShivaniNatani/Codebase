@@ -12,7 +12,7 @@ import { useGame } from '@/context/GameContext';
 const Protocol002 = () => {
   const navigate = useNavigate();
   const { chaptersCompleted, completeChapter, findEasterEgg, easterEggsFound } = useGame();
-  const [phase, setPhase] = useState(chaptersCompleted[1] ? 'complete' : 'story');
+  const [phase, setPhase] = useState('story'); // Always start at story so users can revisit
   const [sequenceInput, setSequenceInput] = useState(['', '', '', '']);
   const [sequenceSolved, setSequenceSolved] = useState(false);
   const [showError, setShowError] = useState(false);
@@ -170,10 +170,10 @@ const Protocol002 = () => {
               </div>
 
               {/* Hidden Easter Egg */}
-              <SecretHint 
-                onClick={handleEasterEggFind} 
-                found={hasFoundEgg} 
-                fragmentNumber={2} 
+              <SecretHint
+                onClick={handleEasterEggFind}
+                found={hasFoundEgg}
+                fragmentNumber={2}
               />
             </motion.div>
           )}
@@ -194,10 +194,10 @@ const Protocol002 = () => {
 
               <div className="bg-card border border-blue-500/30 rounded-lg p-8 max-w-xl mx-auto">
                 <p className="text-foreground text-lg leading-relaxed text-center font-serif italic mb-8">
-                  "Most prepare for months, strategy and plan.<br/>
-                  He walked in unannounced, just skills in hand.<br/>
-                  No appointment, no warning, just pure might.<br/>
-                  Walked out employed that very night.<br/>
+                  "Most prepare for months, strategy and plan.<br />
+                  He walked in unannounced, just skills in hand.<br />
+                  No appointment, no warning, just pure might.<br />
+                  Walked out employed that very night.<br />
                   <span className="text-primary font-bold">Where did this legendary interview happen?"</span>
                 </p>
 
@@ -298,9 +298,9 @@ const Protocol002 = () => {
                   <h3 className="text-lg font-bold text-primary mb-4">SECRET FRAGMENT #2</h3>
                   <div className="bg-background/50 rounded-lg p-4 mb-4">
                     <p className="text-foreground/80 font-serif italic text-sm leading-relaxed">
-                      "I want the guy I date to be more than a boyfriend—<br/>
-                      I want him to be my best friend.<br/>
-                      A love that's real, raw, and a little ridiculous.<br/>
+                      "I want the guy I date to be more than a boyfriend—<br />
+                      I want him to be my best friend.<br />
+                      A love that's real, raw, and a little ridiculous.<br />
                       That's my kind of love."
                     </p>
                   </div>
