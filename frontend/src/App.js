@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import LandingPage from "@/pages/LandingPage";
 import ChapterHub from "@/pages/ChapterHub";
@@ -23,7 +23,7 @@ function App() {
       <div className="min-h-screen bg-background">
         <FloatingHearts count={12} opacity={0.1} />
         <div className="noise-overlay" />
-        <BrowserRouter>
+        <HashRouter>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/chapters" element={<ChapterHub />} />
@@ -48,7 +48,7 @@ function App() {
             <Route path="/kiss-day" element={<Protocol007 />} />
             <Route path="/valentine-day" element={<ProtocolFinal />} />
           </Routes>
-        </BrowserRouter>
+        </HashRouter>
         <Toaster position="top-right" />
       </div>
     </GameProvider>
