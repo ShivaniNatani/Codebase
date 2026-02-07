@@ -14,7 +14,7 @@ export const CodeDebugGame = ({ onSuccess }) => {
   const bugLine1 = ['function calculateSalary(base, bonus) {', '  let total = base + bomus;', '  return total;', '}'];
   const bugLine2 = ['for (let i = 0; i <= arr.length; i++) {', '  console.log(arr[i]);', '}'];
   const bugLine3 = ['async function fetchData() {', '  const response = fetch(url);', '  return response.json();', '}'];
-  
+
   const bugs = [
     { code: bugLine1, bugLine: 1, description: 'Find the typo in variable name' },
     { code: bugLine2, bugLine: 0, description: 'Array index out of bounds' },
@@ -47,7 +47,7 @@ export const CodeDebugGame = ({ onSuccess }) => {
   };
 
   const restartGame = () => {
-    setCurrentBug(0); setSelectedLine(null); setScore(0); 
+    setCurrentBug(0); setSelectedLine(null); setScore(0);
     setTimeLeft(60); setGameOver(false); setGameWon(false);
   };
 
@@ -170,7 +170,7 @@ export const PhoneConnectionGame = ({ onSuccess }) => {
       <div ref={canvasRef} className="relative bg-card rounded-lg border-2 border-border overflow-hidden cursor-crosshair" style={{ width: 400, height: 400 }}
         onMouseDown={handleMouseDown} onMouseMove={handleMouseMove} onMouseUp={handleMouseUp} onMouseLeave={handleMouseUp}>
         <div className="absolute inset-0 opacity-10" style={{ backgroundImage: 'linear-gradient(hsl(var(--primary)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--primary)) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
-        
+
         {obstacles.map((obs, i) => (<div key={i} className="absolute bg-destructive/30 border border-destructive/50 rounded" style={{ left: obs.x, top: obs.y, width: obs.w, height: obs.h }} />))}
 
         <motion.div className="absolute w-14 h-14 rounded-full flex items-center justify-center text-2xl" style={{ left: startPoint.x - 28, top: startPoint.y - 28, background: '#3b82f630', border: '2px solid #3b82f6' }} animate={{ scale: [1, 1.1, 1] }} transition={{ duration: 2, repeat: Infinity }}>📱</motion.div>
@@ -232,7 +232,7 @@ export const HomeBuilderGame = ({ onSuccess }) => {
       </div>
 
       <AnimatePresence>
-        {gameWon && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"><div className="text-center"><motion.div className="text-6xl mb-4" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 0.5, repeat: 3 }}>🏠</motion.div><h3 className="text-2xl font-bold text-green-400">HOME BUILT!</h3><p className="text-muted-foreground">Feb 2025 - Moving in together</p></div></motion.div>)}
+        {gameWon && (<motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="fixed inset-0 bg-black/80 flex items-center justify-center z-50"><div className="text-center"><motion.div className="text-6xl mb-4" animate={{ scale: [1, 1.2, 1] }} transition={{ duration: 0.5, repeat: 3 }}>🏠</motion.div><h3 className="text-2xl font-bold text-green-400">HOME BUILT!</h3><p className="text-muted-foreground">Feb 2026 - Moving in together</p></div></motion.div>)}
       </AnimatePresence>
     </div>
   );

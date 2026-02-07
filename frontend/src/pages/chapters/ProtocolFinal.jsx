@@ -34,7 +34,7 @@ const ProtocolFinal = () => {
       chapterNumber={8}
       title="PROTOCOL_FINAL"
       subtitle="CHOICE"
-      date="FEBRUARY 14, 2025"
+      date="FEBRUARY 14, 2026"
     >
       <div className="max-w-4xl mx-auto">
         <AnimatePresence mode="wait">
@@ -55,7 +55,7 @@ const ProtocolFinal = () => {
                 >
                   ❤️
                 </motion.div>
-                
+
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -64,7 +64,7 @@ const ProtocolFinal = () => {
                   <h1 className="text-4xl md:text-6xl font-bold mb-4 font-mono">
                     <GlitchText text="FINAL PROTOCOL" className="text-primary" glitchIntensity={0.2} />
                   </h1>
-                  <p className="text-xl text-muted-foreground">Valentine's Day 2025</p>
+                  <p className="text-xl text-muted-foreground">Valentine's Day 2026</p>
                 </motion.div>
               </div>
 
@@ -75,7 +75,7 @@ const ProtocolFinal = () => {
                   <span className="text-lg font-bold text-primary">{totalEggs}/8</span>
                 </div>
                 <div className="w-full h-2 bg-muted rounded-full mt-2 overflow-hidden">
-                  <motion.div 
+                  <motion.div
                     className="h-full bg-primary"
                     initial={{ width: 0 }}
                     animate={{ width: `${(totalEggs / 8) * 100}%` }}
@@ -126,10 +126,10 @@ const ProtocolFinal = () => {
               </motion.div>
 
               {/* Hidden Easter Egg */}
-              <SecretHint 
-                onClick={handleEasterEggFind} 
-                found={hasFoundEgg} 
-                fragmentNumber={8} 
+              <SecretHint
+                onClick={handleEasterEggFind}
+                found={hasFoundEgg}
+                fragmentNumber={8}
               />
             </motion.div>
           )}
@@ -145,7 +145,7 @@ const ProtocolFinal = () => {
               <div className="bg-gradient-to-br from-pink-500/5 to-primary/5 border border-pink-500/30 rounded-lg p-8 md:p-12">
                 <div className="max-w-2xl mx-auto space-y-6 font-serif">
                   <div className="text-right text-sm text-muted-foreground mb-8 font-mono">
-                    14.02.2025 • DECRYPTED
+                    14.02.2026 • DECRYPTED
                   </div>
 
                   <p className="text-xl text-foreground leading-relaxed">
@@ -182,7 +182,7 @@ const ProtocolFinal = () => {
 
                   <div className="py-6 text-center">
                     <p className="text-xl text-foreground font-bold">
-                      So here I am, on Valentine's Day 2025, asking you one question:
+                      So here I am, on Valentine's Day 2026, asking you one question:
                     </p>
                   </div>
                 </div>
@@ -233,10 +233,10 @@ const ProtocolFinal = () => {
                 </h2>
 
                 <div className="text-4xl md:text-6xl font-bold">
-                  <GlitchText 
-                    text="Will you be mine forever?" 
-                    className="text-primary" 
-                    glitchIntensity={0.15} 
+                  <GlitchText
+                    text="Will you be mine forever?"
+                    className="text-primary"
+                    glitchIntensity={0.15}
                   />
                 </div>
 
@@ -288,7 +288,7 @@ const ProtocolFinal = () => {
                 className="text-center space-y-8"
               >
                 <motion.div
-                  animate={{ 
+                  animate={{
                     scale: [1, 1.2, 1],
                     rotate: [0, 10, -10, 0]
                   }}
@@ -317,7 +317,7 @@ const ProtocolFinal = () => {
 
                 {/* Couple Photo */}
                 <div className="bg-card border border-primary rounded-lg p-4 max-w-md mx-auto">
-                  <img 
+                  <img
                     src="https://customer-assets.emergentagent.com/job_ab423600-82ad-4e17-8af4-9ccff7b6ecd6/artifacts/2k4adqyb_FullSizeRender.jpeg"
                     alt="Us"
                     className="rounded-lg w-full"
@@ -393,12 +393,12 @@ const ProtocolFinal = () => {
                   <h3 className="text-lg font-bold text-primary mb-4">FINAL SECRET FRAGMENT</h3>
                   <div className="bg-background/50 rounded-lg p-4 mb-4">
                     <p className="text-foreground/80 font-serif italic text-sm leading-relaxed">
-                      "Close your eyes and think of me,<br/>
-                      Close your eyes and try to see,<br/>
-                      Our hearts together and what could be,<br/>
-                      Our love forever as destiny.<br/><br/>
-                      Because my biggest fear was giving all my love<br/>
-                      To someone who doesn't know what to do with it.<br/>
+                      "Close your eyes and think of me,<br />
+                      Close your eyes and try to see,<br />
+                      Our hearts together and what could be,<br />
+                      Our love forever as destiny.<br /><br />
+                      Because my biggest fear was giving all my love<br />
+                      To someone who doesn't know what to do with it.<br />
                       <span className="text-primary font-bold">But you do. You always did.</span>"
                     </p>
                   </div>

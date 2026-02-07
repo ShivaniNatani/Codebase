@@ -17,19 +17,19 @@ const romanticQuotes = [
 
 // Valentine Week dates for time-lock
 const PROTOCOL_DATES = {
-  0: new Date('2025-02-07T00:00:00'), // Protocol 001
-  1: new Date('2025-02-08T00:00:00'), // Protocol 002
-  2: new Date('2025-02-09T00:00:00'), // Protocol 003
-  3: new Date('2025-02-10T00:00:00'), // Protocol 004
-  4: new Date('2025-02-11T00:00:00'), // Protocol 005
-  5: new Date('2025-02-12T00:00:00'), // Protocol 006
-  6: new Date('2025-02-13T00:00:00'), // Protocol 007
-  7: new Date('2025-02-14T00:00:00'), // Protocol FINAL
+  0: new Date('2026-02-07T00:00:00'), // Protocol 001
+  1: new Date('2026-02-08T00:00:00'), // Protocol 002
+  2: new Date('2026-02-09T00:00:00'), // Protocol 003
+  3: new Date('2026-02-10T00:00:00'), // Protocol 004
+  4: new Date('2026-02-11T00:00:00'), // Protocol 005
+  5: new Date('2026-02-12T00:00:00'), // Protocol 006
+  6: new Date('2026-02-13T00:00:00'), // Protocol 007
+  7: new Date('2026-02-14T00:00:00'), // Protocol FINAL
 };
 
 const protocols = [
-  { 
-    id: 'PROTOCOL_001', 
+  {
+    id: 'PROTOCOL_001',
     codename: 'ORIGIN',
     subtitle: 'Where roots take hold',
     path: '/protocol-001',
@@ -37,8 +37,8 @@ const protocols = [
     color: 'text-red-400',
     hint: 'Coal dust and dreams'
   },
-  { 
-    id: 'PROTOCOL_002', 
+  {
+    id: 'PROTOCOL_002',
     codename: 'ASCENSION',
     subtitle: 'The alpha awakens',
     path: '/protocol-002',
@@ -46,8 +46,8 @@ const protocols = [
     color: 'text-yellow-400',
     hint: '18 hours. No shortcuts.'
   },
-  { 
-    id: 'PROTOCOL_003', 
+  {
+    id: 'PROTOCOL_003',
     codename: 'FRACTURE',
     subtitle: 'What breaks us',
     path: '/protocol-003',
@@ -55,8 +55,8 @@ const protocols = [
     color: 'text-orange-500',
     hint: 'The wall that saved him'
   },
-  { 
-    id: 'PROTOCOL_004', 
+  {
+    id: 'PROTOCOL_004',
     codename: 'GLITCH',
     subtitle: 'Error becomes destiny',
     path: '/protocol-004',
@@ -64,8 +64,8 @@ const protocols = [
     color: 'text-green-400',
     hint: 'Wrong number. Right call.'
   },
-  { 
-    id: 'PROTOCOL_005', 
+  {
+    id: 'PROTOCOL_005',
     codename: 'PARADOX',
     subtitle: 'Opposites collide',
     path: '/protocol-005',
@@ -73,8 +73,8 @@ const protocols = [
     color: 'text-purple-400',
     hint: 'Veg meets non-veg'
   },
-  { 
-    id: 'PROTOCOL_006', 
+  {
+    id: 'PROTOCOL_006',
     codename: 'ANCHOR',
     subtitle: 'What holds us',
     path: '/protocol-006',
@@ -82,8 +82,8 @@ const protocols = [
     color: 'text-blue-400',
     hint: 'Diwali. Birthday. Always.'
   },
-  { 
-    id: 'PROTOCOL_007', 
+  {
+    id: 'PROTOCOL_007',
     codename: 'REVELATION',
     subtitle: 'The truth unveiled',
     path: '/protocol-007',
@@ -91,8 +91,8 @@ const protocols = [
     color: 'text-pink-400',
     hint: 'What you truly found'
   },
-  { 
-    id: 'PROTOCOL_FINAL', 
+  {
+    id: 'PROTOCOL_FINAL',
     codename: 'CHOICE',
     subtitle: 'The point of no return',
     path: '/protocol-final',
@@ -104,16 +104,16 @@ const protocols = [
 
 const ChapterHub = () => {
   const navigate = useNavigate();
-  const { 
-    accessGranted, 
-    chaptersUnlocked, 
-    chaptersCompleted, 
+  const {
+    accessGranted,
+    chaptersUnlocked,
+    chaptersCompleted,
     easterEggsFound = [],
     soundEnabled,
     toggleSound,
     resetProgress
   } = useGame();
-  
+
   const [hoveredProtocol, setHoveredProtocol] = useState(null);
   const [now, setNow] = useState(new Date());
 
@@ -121,26 +121,25 @@ const ChapterHub = () => {
     if (!accessGranted) {
       navigate('/');
     }
-    
+
     // Update time every minute for time-lock check
     const timer = setInterval(() => setNow(new Date()), 60000);
     return () => clearInterval(timer);
   }, [accessGranted, navigate]);
 
   const isTimeLocked = (index) => {
-    // For testing: set to false to unlock all
-    // For production: return now < PROTOCOL_DATES[index];
-    return false; // DEV MODE - all unlocked for testing
+    // Production mode: chapters unlock on their scheduled dates
+    return now < PROTOCOL_DATES[index];
   };
 
   const getTimeUntilUnlock = (index) => {
     const unlockDate = PROTOCOL_DATES[index];
     const diff = unlockDate - now;
     if (diff <= 0) return null;
-    
+
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    
+
     if (days > 0) return `${days}d ${hours}h`;
     return `${hours}h`;
   };
@@ -216,7 +215,7 @@ const ChapterHub = () => {
             <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-foreground mb-4">
               <GlitchText text="PROTOCOL_V" className="text-primary" glitchIntensity={0.1} />
             </h1>
-            
+
             <p className="text-lg text-muted-foreground font-mono">
               8 encrypted chapters. Each hides a secret.
               <span className="text-primary block mt-2 font-serif italic">
@@ -275,7 +274,7 @@ const ChapterHub = () => {
               const isCompleted = chaptersCompleted[index];
               const timeLeft = getTimeUntilUnlock(index);
               const hasEasterEgg = easterEggsFound?.includes(index);
-              
+
               return (
                 <motion.div
                   key={protocol.id}
@@ -350,8 +349,8 @@ const ChapterHub = () => {
             >
               <div className="text-4xl mb-4">🔮</div>
               <p className="text-foreground/80 font-mono text-sm leading-relaxed">
-                <span className="text-primary">&gt;</span> Each protocol hides a secret fragment.<br/>
-                <span className="text-primary">&gt;</span> Find them all to decrypt the final message.<br/>
+                <span className="text-primary">&gt;</span> Each protocol hides a secret fragment.<br />
+                <span className="text-primary">&gt;</span> Find them all to decrypt the final message.<br />
                 <span className="text-primary">&gt;</span> The truth awaits those who search carefully...
               </p>
               <p className="text-xs text-muted-foreground mt-4 font-serif italic">

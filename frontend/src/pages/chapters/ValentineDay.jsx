@@ -46,7 +46,7 @@ const ValentineDay = () => {
                 >
                   ❤️
                 </motion.div>
-                
+
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -55,7 +55,7 @@ const ValentineDay = () => {
                   <h1 className="text-4xl md:text-6xl font-bold mb-4">
                     <GlitchText text="THE FINAL CHAPTER" className="text-primary" glitchIntensity={0.2} />
                   </h1>
-                  <p className="text-xl text-muted-foreground">February 14, 2025</p>
+                  <p className="text-xl text-muted-foreground">February 14, 2026</p>
                 </motion.div>
               </div>
 
@@ -109,7 +109,7 @@ const ValentineDay = () => {
               <div className="bg-gradient-to-br from-pink-500/5 to-primary/5 border border-pink-500/30 rounded-lg p-8 md:p-12">
                 <div className="max-w-2xl mx-auto space-y-6 font-serif">
                   <div className="text-right text-sm text-muted-foreground mb-8">
-                    February 14, 2025
+                    February 14, 2026
                   </div>
 
                   <p className="text-xl text-foreground leading-relaxed">
@@ -118,18 +118,18 @@ const ValentineDay = () => {
 
                   <p className="text-foreground/90 leading-relaxed">
                     I've spent the last 7 days showing you your own story. Not because you needed to remember—
-                    you never forget. But because I needed you to <span className="text-primary">see</span> it 
+                    you never forget. But because I needed you to <span className="text-primary">see</span> it
                     the way I see it.
                   </p>
 
                   <p className="text-foreground/90 leading-relaxed">
-                    I see a boy from Dhanbad who refused to be ordinary. A man who coded for 18 hours a day 
-                    because failure wasn't an option. An Alpha who built walls so high that no one could hurt 
+                    I see a boy from Dhanbad who refused to be ordinary. A man who coded for 18 hours a day
+                    because failure wasn't an option. An Alpha who built walls so high that no one could hurt
                     him again.
                   </p>
 
                   <p className="text-foreground/90 leading-relaxed">
-                    And then... a wrong number. A glitch in the system. A Shivani who wasn't the Shivani you 
+                    And then... a wrong number. A glitch in the system. A Shivani who wasn't the Shivani you
                     called for.
                   </p>
 
@@ -139,8 +139,8 @@ const ValentineDay = () => {
                   </p>
 
                   <p className="text-foreground/90 leading-relaxed">
-                    You celebrated my birthday when I was broken. You chose Diwali with me over going home. 
-                    You respected my pure veg life even though you're hardcore non-veg. You watch movies with me, 
+                    You celebrated my birthday when I was broken. You chose Diwali with me over going home.
+                    You respected my pure veg life even though you're hardcore non-veg. You watch movies with me,
                     drive for hours, and show up—<span className="text-primary">every single time</span>.
                   </p>
 
@@ -150,7 +150,7 @@ const ValentineDay = () => {
                   </p>
 
                   <p className="text-foreground/90 leading-relaxed text-lg">
-                    Argha, you've spent your whole life building things. Building yourself. Building your career. 
+                    Argha, you've spent your whole life building things. Building yourself. Building your career.
                     Building your strength.
                   </p>
 
@@ -159,14 +159,14 @@ const ValentineDay = () => {
                   </p>
 
                   <p className="text-foreground/90 leading-relaxed">
-                    I'm emotional and you're logical. I'm veg and you're not. I'm from Indore and you're from 
-                    Dhanbad. None of that matters. What matters is that when I'm with you, I feel 
-                    <span className="text-pink-400"> safe</span>. I feel <span className="text-pink-400">seen</span>. 
+                    I'm emotional and you're logical. I'm veg and you're not. I'm from Indore and you're from
+                    Dhanbad. None of that matters. What matters is that when I'm with you, I feel
+                    <span className="text-pink-400"> safe</span>. I feel <span className="text-pink-400">seen</span>.
                     I feel <span className="text-pink-400">home</span>.
                   </p>
 
                   <p className="text-foreground/90 leading-relaxed">
-                    You once promised you'd always be there for me. You said you'd be there even during my 
+                    You once promised you'd always be there for me. You said you'd be there even during my
                     hardest times. And you were. You never thought you'd fall for me.
                   </p>
 
@@ -176,7 +176,7 @@ const ValentineDay = () => {
 
                   <div className="pt-8 border-t border-border/50 mt-8">
                     <p className="text-foreground leading-relaxed text-center text-xl">
-                      So here I am, on Valentine's Day 2025, asking you one question:
+                      So here I am, on Valentine's Day 2026, asking you one question:
                     </p>
                   </div>
                 </div>
@@ -216,7 +216,7 @@ const ValentineDay = () => {
                 className="text-center space-y-8"
               >
                 <motion.div
-                  animate={{ 
+                  animate={{
                     scale: [1, 1.1, 1],
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
@@ -230,10 +230,10 @@ const ValentineDay = () => {
                 </h2>
 
                 <div className="text-4xl md:text-6xl font-bold">
-                  <GlitchText 
-                    text="Will you be mine forever?" 
-                    className="text-primary" 
-                    glitchIntensity={0.15} 
+                  <GlitchText
+                    text="Will you be mine forever?"
+                    className="text-primary"
+                    glitchIntensity={0.15}
                   />
                 </div>
 
@@ -296,7 +296,7 @@ const ValentineDay = () => {
                 >
                   {/* Celebration */}
                   <motion.div
-                    animate={{ 
+                    animate={{
                       scale: [1, 1.2, 1],
                       rotate: [0, 10, -10, 0]
                     }}
@@ -315,8 +315,8 @@ const ValentineDay = () => {
                       You said yes.
                     </p>
                     <p className="text-xl text-foreground/80 leading-relaxed">
-                      Argha, you just made me the happiest person in the world. 
-                      From a wrong number to forever. From Dhanbad to our future. 
+                      Argha, you just made me the happiest person in the world.
+                      From a wrong number to forever. From Dhanbad to our future.
                       From Alpha to mine.
                     </p>
                     <p className="text-primary text-2xl font-bold">
@@ -326,8 +326,8 @@ const ValentineDay = () => {
 
                   <div className="bg-gradient-to-br from-pink-500/20 to-primary/20 border border-primary rounded-lg p-8 mt-8">
                     <p className="text-foreground font-serif italic text-lg">
-                      "The boy from Dhanbad who built himself from nothing found his greatest 
-                      achievement at the end of the journey—not a company, not success, but love. 
+                      "The boy from Dhanbad who built himself from nothing found his greatest
+                      achievement at the end of the journey—not a company, not success, but love.
                       <span className="text-primary font-bold"> You found me. And I found you.</span>"
                     </p>
                     <p className="text-pink-400 font-medium mt-4">
@@ -356,19 +356,19 @@ const ValentineDay = () => {
                   className="text-center space-y-8 max-w-xl mx-auto"
                 >
                   <div className="text-6xl">💭</div>
-                  
+
                   <h2 className="text-2xl font-bold text-foreground">
                     I understand.
                   </h2>
-                  
+
                   <p className="text-foreground/80 leading-relaxed">
-                    Love isn't something to rush. Take your time, Argha. 
+                    Love isn't something to rush. Take your time, Argha.
                     I'll be here when you're ready. That's what forever means—
                     <span className="text-primary"> waiting without conditions</span>.
                   </p>
-                  
+
                   <p className="text-muted-foreground font-serif italic">
-                    "The Alpha doesn't make decisions under pressure. He makes them when he's certain. 
+                    "The Alpha doesn't make decisions under pressure. He makes them when he's certain.
                     And I love that about you."
                   </p>
 

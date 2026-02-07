@@ -80,7 +80,7 @@ const Chapter6 = () => {
         <AnimatePresence mode="wait">
           {phase === 'story' && (
             <motion.div key="story" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="space-y-12">
-              
+
               <motion.div className="bg-card border border-green-500/30 rounded-lg p-6">
                 <TerminalBlock lines={[
                   { text: 'RELATIONSHIP_MODE: PARTNERSHIP', prefix: '> ', className: 'text-green-400' },
@@ -88,14 +88,14 @@ const Chapter6 = () => {
                   { text: 'PROPERTIES_COMBINED: 3 FLATS', prefix: '> ', className: 'text-primary' },
                   { text: 'HIS_CONTRIBUTION: 2 FLATS', prefix: '> ' },
                   { text: 'HER_CONTRIBUTION: 1 FLAT (FIRST HOME)', prefix: '> ' },
-                  { text: 'MOVE_IN_DATE: FEB_2025', prefix: '> ', className: 'text-green-400' },
+                  { text: 'MOVE_IN_DATE: FEB_2026', prefix: '> ', className: 'text-green-400' },
                 ]} />
               </motion.div>
 
               <StorySection>
                 <p className="text-foreground/90 text-lg leading-relaxed">
-                  This wasn't a relationship that <span className="text-destructive">consumed</span>—it was one that 
-                  <span className="text-green-400 font-semibold"> built</span>. Two people who understood that love 
+                  This wasn't a relationship that <span className="text-destructive">consumed</span>—it was one that
+                  <span className="text-green-400 font-semibold"> built</span>. Two people who understood that love
                   isn't just feeling—it's construction. Brick by brick. Decision by decision.
                 </p>
               </StorySection>
@@ -131,14 +131,14 @@ const Chapter6 = () => {
                 </div>
                 <div className="mt-6 pt-6 border-t border-border/50 text-center">
                   <div className="text-sm text-muted-foreground">Moving into their own home</div>
-                  <div className="text-2xl font-bold text-green-400 mt-2">February 2025</div>
+                  <div className="text-2xl font-bold text-green-400 mt-2">February 2026</div>
                 </div>
               </div>
 
               <StorySection>
                 <p className="text-foreground/90 text-lg leading-relaxed">
-                  They traveled. Not just to escape, but to <span className="text-primary font-semibold">experience</span>. 
-                  Maldives. Pondicherry. Mysore. Each trip was a chapter in their story, 
+                  They traveled. Not just to escape, but to <span className="text-primary font-semibold">experience</span>.
+                  Maldives. Pondicherry. Mysore. Each trip was a chapter in their story,
                   a shared memory being deliberately created.
                 </p>
               </StorySection>
@@ -172,8 +172,8 @@ const Chapter6 = () => {
 
               <blockquote className="border-l-4 border-primary pl-6 py-4 bg-card/30 rounded-r-lg">
                 <p className="text-xl font-serif italic text-foreground/90">
-                  "Partnership isn't about finding someone who makes life easier. It's about finding 
-                  someone worth making life harder for. Someone who builds with you, not off you. 
+                  "Partnership isn't about finding someone who makes life easier. It's about finding
+                  someone worth making life harder for. Someone who builds with you, not off you.
                   <span className="text-primary"> Chosen loyalty.</span>"
                 </p>
               </blockquote>
