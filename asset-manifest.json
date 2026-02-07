@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Codebase/static/css/main.db995b86.css",
+    "main.js": "/Codebase/static/js/main.2b6030d5.js",
+    "index.html": "/Codebase/index.html",
+    "main.db995b86.css.map": "/Codebase/static/css/main.db995b86.css.map",
+    "main.2b6030d5.js.map": "/Codebase/static/js/main.2b6030d5.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.db995b86.css",
+    "static/js/main.2b6030d5.js"
+  ]
+}
