@@ -261,6 +261,33 @@ const ChapterHub = () => {
                 </Button>
               </motion.div>
             )}
+
+            {/* Soul Questions Section - Available after Protocol 007 */}
+            {chaptersCompleted[6] && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+                className="mt-6 flex flex-col sm:flex-row gap-3 justify-center"
+              >
+                <Button
+                  variant="outline"
+                  onClick={() => navigate('/soul-questions')}
+                  className="border-pink-500/50 hover:bg-pink-500/10 text-pink-400"
+                >
+                  <i className="fas fa-heart mr-2" />
+                  Soul Questions
+                </Button>
+                <Button
+                  variant="outline"
+                  onClick={() => navigate('/soul-responses')}
+                  className="border-pink-500/50 hover:bg-pink-500/10 text-pink-400"
+                >
+                  <i className="fas fa-envelope-open-text mr-2" />
+                  Read His Responses
+                </Button>
+              </motion.div>
+            )}
           </motion.div>
         </div>
       </section>

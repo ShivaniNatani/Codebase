@@ -177,8 +177,8 @@ const Protocol007 = () => {
           {phase === 'complete' && (
             <DayCompletionPage
               dayIndex={6}
-              onContinue={() => navigate('/protocol-final')}
-              nextDayName="PROTOCOL_FINAL: CHOICE"
+              onContinue={() => navigate('/soul-questions')}
+              nextDayName="SOUL QUESTIONS"
             />
           )}
         </AnimatePresence>

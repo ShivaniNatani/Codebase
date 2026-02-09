@@ -10,6 +10,8 @@ import Protocol005 from "@/pages/chapters/Protocol005";
 import Protocol006 from "@/pages/chapters/Protocol006";
 import Protocol007 from "@/pages/chapters/Protocol007";
 import ProtocolFinal from "@/pages/chapters/ProtocolFinal";
+import SoulQuestions from "@/pages/SoulQuestions";
+import SoulResponses from "@/pages/SoulResponses";
 import MidwayCheckpoint from "@/pages/MidwayCheckpoint";
 import JourneyStats from "@/pages/JourneyStats";
 import FinalChoice from "@/pages/FinalChoice";
@@ -35,6 +37,8 @@ function App() {
             <Route path="/protocol-005" element={<Protocol005 />} />
             <Route path="/protocol-006" element={<Protocol006 />} />
             <Route path="/protocol-007" element={<Protocol007 />} />
+            <Route path="/soul-questions" element={<SoulQuestions />} />
+            <Route path="/soul-responses" element={<SoulResponses />} />
             <Route path="/protocol-final" element={<ProtocolFinal />} />
             <Route path="/journey-stats" element={<JourneyStats />} />
             <Route path="/final" element={<FinalChoice />} />
